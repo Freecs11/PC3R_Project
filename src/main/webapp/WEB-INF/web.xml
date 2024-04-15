@@ -5,7 +5,6 @@
             version="4.0">
         <display-name>Archetype Created Web Application</display-name>
         <resource-ref>
-            <description>MySQL Datasource example</description>
             <res-ref-name>jdbc/db</res-ref-name>
             <res-type>javax.sql.DataSource</res-type>
             <res-auth>Container</res-auth>
