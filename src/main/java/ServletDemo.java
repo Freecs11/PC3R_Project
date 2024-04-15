@@ -8,26 +8,24 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.io.IOException;
 
 @WebServlet("/demo")
 public class ServletDemo extends HttpServlet {
-
-
-    DataSource dataSource;
-
-    @Override
-    public void init(){
-        Context ctx = new InitialContext();
-        ds = (DataSource)ctx.lookup("java:comp/env/jdbc/mkyongdb");
-    }
-
+    DataSource ds;
 
     // init
     @Override
     public void init() {
         System.out.println("ServletDemo initialized");
+        try {
+            Context ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup("java:comp/env/jdbc/db");
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -38,7 +36,7 @@ public class ServletDemo extends HttpServlet {
         resp.getWriter().write("Hello from jffjijijrir\n");
         // test db connection
         try {
-            dataSource.getConnection();
+            ds.getConnection();
             resp.getWriter().write("Connection successful");
         } catch (Exception e) {
             resp.getWriter().write("Connection failed");
@@ -50,7 +48,7 @@ public class ServletDemo extends HttpServlet {
         resp.getWriter().write("Hello from saiksakj\n");
 
         try {
-            dataSource.getConnection();
+            ds.getConnection();
             resp.getWriter().write("Connection successful");
         } catch (Exception e) {
             resp.getWriter().write("Connection failed\n");
