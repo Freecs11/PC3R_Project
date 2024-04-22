@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="JpaBuddyIdeaProjectConfig">
+  <component name="JpaBuddyIdeaProjectConfig" migrateIndexesAndConstraints="true" reUseTableSchema="true">
     <option name="defaultUnitInitialized" value="true" />
     <option name="renamerInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="ec2bd2a8-5614-432b-b58f-cb8a078c30b6__pc3r_public" />
+    <option name="reLastEntityCreationPackage" value="src/main/java/com/pc3r/vfarm/entities" />
   </component>
 </project>
