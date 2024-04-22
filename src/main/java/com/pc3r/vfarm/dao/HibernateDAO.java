@@ -21,7 +21,7 @@ public class HibernateDAO<T> implements IHibernateDAO<T> {
         Transaction tx = null;
         try (sessionFactory; Session session = sessionFactory.openSession()) {
             tx = session.beginTransaction();
-            session.persist(entity);
+            session.save(entity);
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {
@@ -37,7 +37,7 @@ public class HibernateDAO<T> implements IHibernateDAO<T> {
         Transaction tx = null;
         try (sessionFactory; Session session = sessionFactory.openSession()) {
             tx = session.beginTransaction();
-            session.merge(entity);
+            session.update(entity);
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {
@@ -53,7 +53,7 @@ public class HibernateDAO<T> implements IHibernateDAO<T> {
         Transaction tx = null;
         try (sessionFactory; Session session = sessionFactory.openSession()) {
             tx = session.beginTransaction();
-            session.remove(entity);
+            session.delete(entity);
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {

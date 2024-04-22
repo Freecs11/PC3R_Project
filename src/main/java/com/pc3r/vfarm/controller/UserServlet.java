@@ -1,4 +1,4 @@
-package com.pc3r.vfarm.servlet;
+package com.pc3r.vfarm.controller;
 
 import com.pc3r.vfarm.entities.User;
 import com.pc3r.vfarm.service.UserService;
