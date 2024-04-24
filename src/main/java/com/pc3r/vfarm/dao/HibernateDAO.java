@@ -73,4 +73,13 @@ public class HibernateDAO<T> implements IHibernateDAO<T> {
             return null;
         }
     }
+
+    @Override
+    public Session getSession() {
+        SessionFactory sessionFactory = getSessionFactory();
+        return sessionFactory.openSession();
+
+    }
+
+
 }

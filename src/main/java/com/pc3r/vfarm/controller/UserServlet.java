@@ -1,5 +1,7 @@
 package com.pc3r.vfarm.controller;
 
+import com.pc3r.vfarm.DTO.ResponseDTO;
+import com.pc3r.vfarm.DTO.UserDto;
 import com.pc3r.vfarm.entities.User;
 import com.pc3r.vfarm.service.UserService;
 import jakarta.servlet.annotation.WebServlet;
@@ -20,24 +22,61 @@ public class UserServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("application/json");
-        String userID = request.getParameter("id");
-        String userName = request.getParameter("name");
-        String userPassword = request.getParameter("password");
-        String userEmail = request.getParameter("email");
         PrintWriter out = response.getWriter();
-        User user = new User();
-        user.setId(Integer.parseInt(userID));
-        user.setUsername(userName);
-        user.setPassword(userPassword);
-        user.setEmail(userEmail);
-        user.setCoinId("0");
-        user.setRole("user");
-        user.setPosition("0");
-        user.setCreatedAt(Instant.now());
 
+        UserDto userDTO = extractUserDTOFromRequest(request);
+        User user = convertDTOToUser(userDTO);
         userService.save(user);
-        out.println("{\"status\": \"success\"}");
 
+        ResponseDTO responseDTO = new ResponseDTO("success", "User created successfully");
+        out.println(responseDTO.toJson());
+    }
+
+    private UserDto extractUserDTOFromRequest(HttpServletRequest request) {
+        UserDto userDTO = new UserDto();
+        userDTO.setUsername(request.getParameter("username"));
+        userDTO.setPassword(request.getParameter("password"));
+        userDTO.setEmail(request.getParameter("email"));
+        userDTO.setCoinId(Integer.valueOf(request.getParameter("coinId")));
+        userDTO.setRole(request.getParameter("role"));
+        userDTO.setPosition(request.getParameter("position"));
+        userDTO.setCreatedAt(Instant.now());
+        return userDTO;
+    }
+
+    private User convertDTOToUser(UserDto userDTO) {
+        User user = new User();
+        user.setUsername(userDTO.getUsername());
+        user.setPassword(userDTO.getPassword());
+        user.setEmail(userDTO.getEmail());
+        user.setCoinId(userDTO.getCoinId());
+        user.setRole(userDTO.getRole());
+        user.setPosition(userDTO.getPosition());
+        user.setCreatedAt(Instant.now());
+        return user;
+    }
+
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("application/json");
+        String action = request.getParameter("action");
+
+        if (action.equals("get_user_by_username")) {
+            String username = request.getParameter("username");
+            User user = userService.getUserByUsername(username);
+            ResponseDTO responseDTO = new ResponseDTO("success", user.toString());
+            PrintWriter out = response.getWriter();
+            out.println(responseDTO.toJson());
+        } else if (action.equals("get_user_by_email")) {
+            String email = request.getParameter("email");
+            User user = userService.getUserByEmail(email);
+            ResponseDTO responseDTO = new ResponseDTO("success", user.toString());
+            PrintWriter out = response.getWriter();
+            out.println(responseDTO.toJson());
+        }
 
     }
+
+
+
 }

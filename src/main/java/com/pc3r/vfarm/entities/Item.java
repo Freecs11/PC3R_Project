@@ -16,28 +16,23 @@ public class Item {
     private Integer id;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"NAME\"", nullable = false)
     private String name;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"TYPE\"", nullable = false)
     private String type;
 
-    @NotNull
     @Column(name = "\"CREATED_AT\"", nullable = false)
     private Instant createdAt;
 
     @Column(name = "\"PURCHASED_AT\"")
     private Instant purchasedAt;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "\"OWNER_ID\"", nullable = false)
     private User owner;
 
-    @NotNull
     @Column(name = "\"DURABILITY\"", nullable = false)
     private Integer durability;
 

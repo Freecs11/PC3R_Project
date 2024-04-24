@@ -17,36 +17,29 @@ public class User {
     private Integer id;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"USERNAME\"", nullable = false)
     private String username;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"PASSWORD\"", nullable = false)
     private String password;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"EMAIL\"", nullable = false)
     private String email;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"COIN_ID\"", nullable = false)
-    private String coinId;
+    private Integer coinId;
 
-    @NotNull
     @Column(name = "\"CREATED_AT\"", nullable = false)
     private Instant createdAt;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"POSITION\"", nullable = false)
     private String position;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"ROLE\"", nullable = false)
     private String role;
 
@@ -94,11 +87,11 @@ public class User {
         this.email = email;
     }
 
-    public String getCoinId() {
+    public Integer getCoinId() {
         return coinId;
     }
 
-    public void setCoinId(String coinId) {
+    public void setCoinId(Integer coinId) {
         this.coinId = coinId;
     }
 
@@ -156,6 +149,20 @@ public class User {
 
     public void setPets(Set<Pet> pets) {
         this.pets = pets;
+    }
+
+    @Override
+    public String toString() {
+        return "User{\n" +
+                "id=" + id + '\n' +
+                ", username='" + username + '\n' +
+                ", password='" + password + '\n' +
+                ", email='" + email + '\n' +
+                ", coinId='" + coinId + '\n' +
+                ", createdAt=" + createdAt + '\n' +
+                ", position='" + position + '\n' +
+                ", role='" + role + '\n' +
+                '}';
     }
 
 }

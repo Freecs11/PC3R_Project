@@ -13,17 +13,14 @@ public class Reward {
     @Column(name = "\"ID\"", nullable = false)
     private Integer id;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "\"DUNGEON_ID\"", nullable = false)
     private Dungeon dungeon;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "\"COIN_ID\"", nullable = false)
     private Coin coin;
 
-    @NotNull
     @Column(name = "\"VALUE\"", nullable = false)
     private BigDecimal value;
 

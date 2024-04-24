@@ -17,29 +17,23 @@ public class Pet {
     private Integer id;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"NAME\"", nullable = false)
     private String name;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"TYPE\"", nullable = false)
     private String type;
 
-    @NotNull
     @Column(name = "\"PURCHASED_AT\"", nullable = false)
     private Instant purchasedAt;
 
-    @NotNull
     @Column(name = "\"CREATED_AT\"", nullable = false)
     private Instant createdAt;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "\"OWNER_ID\"", nullable = false)
     private User owner;
 
-    @NotNull
     @Column(name = "\"HEALTH\"", nullable = false)
     private Integer health;
 

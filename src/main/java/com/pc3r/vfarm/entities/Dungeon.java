@@ -18,28 +18,22 @@ public class Dungeon {
     private Integer id;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"NAME\"", nullable = false)
     private String name;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"TYPE\"", nullable = false)
     private String type;
 
-    @NotNull
     @Column(name = "\"CREATED_AT\"", nullable = false)
     private Instant createdAt;
 
-    @NotNull
     @Column(name = "\"LOCAL_X\"", nullable = false)
     private BigDecimal localX;
 
-    @NotNull
     @Column(name = "\"LOCAL_Y\"", nullable = false)
     private BigDecimal localY;
 
-    @NotNull
     @Column(name = "\"TIME\"", nullable = false)
     private Instant time;
 
