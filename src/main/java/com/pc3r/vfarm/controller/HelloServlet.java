@@ -1,4 +1,4 @@
-package com.pc3r.vfarm;
+package com.pc3r.vfarm.controller;
 
 import java.io.*;
 import java.sql.Connection;
@@ -20,6 +20,7 @@ public class HelloServlet extends HttpServlet {
     private String message;
 
     public void init() {
+
         DatabaseConnection.getSessionFactory();
         try {
             UserService userService = new UserService();
@@ -37,7 +38,7 @@ public class HelloServlet extends HttpServlet {
         // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
+        out.println("<h1>" + "KAJSDkasjdksajdk" + "</h1>");
         out.println("</body></html>");
     }
 

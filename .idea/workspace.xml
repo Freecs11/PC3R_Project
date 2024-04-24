@@ -10,8 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf0aa55c-3c3d-42d4-852d-5d86b02f36c4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/TestAuth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/LogInServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/LogInServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/LogOutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/LogOutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/middleware/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/middleware/AuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/HelloServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/dao/HibernateDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/dao/HibernateDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/servlet/UserServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/HelloServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/HibernateDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/HibernateDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/servlet/UserServlet.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +34,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="com.haulmont.jpb.JpaEntity" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -249,6 +261,7 @@
       <workItem from="1713550327073" duration="6917000" />
       <workItem from="1713558796926" duration="7347000" />
       <workItem from="1713788707612" duration="7644000" />
+      <workItem from="1713954790018" duration="9070000" />
     </task>
     <servers />
   </component>
