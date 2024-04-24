@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 public class AuthFilter implements Filter {
     private ServletContext context;
 
-    public void init(FilterConfig fConfig) throws ServletException {
+    public void init(FilterConfig fConfig) {
         this.context = fConfig.getServletContext();
         this.context.log("AuthenticationFilter initialized");
     }

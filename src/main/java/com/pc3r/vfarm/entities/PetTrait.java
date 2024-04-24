@@ -15,20 +15,16 @@ public class PetTrait {
     private Integer id;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"NAME\"", nullable = false)
     private String name;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"DESCRIPTION\"", nullable = false)
     private String description;
 
-    @NotNull
     @Column(name = "\"VALUE\"", nullable = false)
     private BigDecimal value;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "\"PET_ID\"", nullable = false)
     private Pet pet;

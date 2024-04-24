@@ -1,5 +1,6 @@
 package com.pc3r.vfarm.dao.interfaces;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 public interface IHibernateDAO<T> {
@@ -12,6 +13,6 @@ public interface IHibernateDAO<T> {
 
     T findById(long id);
 
-
+    Session getSession();
 
 }
