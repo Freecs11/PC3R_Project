@@ -2,100 +2,16 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="VirtuelFarm:war" />
+      <artifact name="VFarm:war" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf0aa55c-3c3d-42d4-852d-5d86b02f36c4" name="Changes" comment="initd">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/demo2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VirtuelFarm.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/DTO/CoinDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/DTO/DungeonDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/DTO/DungeonTraitDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/DTO/ItemDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/DTO/LogDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/DTO/PetDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/DTO/PetTraitDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/DTO/ResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/DTO/RewardDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/DTO/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/users/SignupServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/CoinDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/DungeonDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/DungeonTraitDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/ItemDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/LogDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/PetDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/PetTraitDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/RewardDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/service/CoinService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/service/DungeonService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/service/DungeonTraitService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/service/ItemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/service/LogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/service/PetService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/service/PetTraitService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/service/RewardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/pc3r.0mM0AA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/pc3r.0mM0AA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/pc3r.0mM0AA/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/pc3r.0mM0AA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/pc3r.0mM0AA/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/pc3r.0mM0AA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/postgres.edMnLQ/schema/neon.1okzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/postgres.edMnLQ/schema/neon.1okzAA.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/postgres.edMnLQ/schema/neon_migration.peTA6w.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec2bd2a8-5614-432b-b58f-cb8a078c30b6/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="cf0aa55c-3c3d-42d4-852d-5d86b02f36c4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/HelloServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/HibernateDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/HibernateDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/interfaces/IHibernateDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/interfaces/IHibernateDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Coin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Coin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Dungeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Dungeon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/DungeonTrait.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/DungeonTrait.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Pet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/PetTrait.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/PetTrait.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Reward.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Reward.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/web/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/HelloServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/dao/HibernateDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/dao/HibernateDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/dao/interfaces/IHibernateDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/dao/interfaces/IHibernateDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/HelloServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/HibernateDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/HibernateDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/interfaces/IHibernateDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/interfaces/IHibernateDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,9 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="com.intellij.jpb.NewClass" />
         <option value="Class" />
+        <option value="com.haulmont.jpb.JpaEntity" />
       </list>
     </option>
   </component>
@@ -128,13 +43,19 @@
   <component name="GitLabMergeRequestsSettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;first&quot;: &quot;https://gitlab.com/Freecs11/pc3r_project.git&quot;,
-    &quot;second&quot;: &quot;f8e90681-10cb-436d-9543-863f28e6ab32&quot;
+    &quot;second&quot;: &quot;bc2198ff-da53-4284-b02a-2c66de2809d5&quot;
   }
 }</component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="KubernetesApiProvider">{
+  &quot;contexts&quot;: [
+    {
+      &quot;name&quot;: &quot;minikube&quot;,
+      &quot;originalNamespace&quot;: &quot;default&quot;
+    }
+  ],
   &quot;isMigrated&quot;: true
 }</component>
   <component name="KubernetesSettings">
@@ -150,19 +71,15 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="customMavenHome" value="C:\Users\Freecs\Downloads\apache-tomcat-11.0.0-M18-windows-x64\apache-tomcat-11.0.0-M18" />
-        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
+        <option name="mavenHome" value="Use Maven wrapper" />
       </MavenGeneralSettings>
     </option>
-  </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="2" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2eJltpKYHty9xGOM5ONkcGIcd8E" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -188,7 +105,7 @@
     &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -207,6 +124,13 @@
       <recent name="com.pc3r.vfarm.entities" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="excludedTypes">
+      <set>
+        <option value="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" />
+      </set>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -219,12 +143,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tomcat 10.1.20" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.20" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="openjdk-21" nameIsGenerated="true">
+    <configuration name="Tomcat 10.1.20" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.20" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="corretto-21" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="VirtuelFarm:war">
+        <artifact name="VFarm:war">
           <settings>
-            <option name="CONTEXT_PATH" value="/VirtuelFarm_war" />
+            <option name="CONTEXT_PATH" value="" />
           </settings>
         </artifact>
       </deployment>
@@ -237,11 +161,6 @@
       <predefined_log_file id="Tomcat Manager" />
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
-      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
-        <option name="credential" />
-        <option name="region" />
-        <option name="useCurrentConnection" value="false" />
-      </extension>
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="61093" />
       </RunnerSettings>
@@ -309,49 +228,9 @@
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="VFarm:war" />
-          <artifact name="VirtuelFarm:war" />
         </option>
       </method>
     </configuration>
-    <configuration default="true" type="aws.lambda" factoryName="Local">
-      <option name="credentialProviderId" />
-      <option name="regionId" />
-      <option name="debugHost" value="localhost" />
-      <option name="architecture" />
-      <option name="environmentVariables">
-        <map />
-      </option>
-      <option name="handler" />
-      <option name="image" value="false" />
-      <option name="logicalFunctionName" />
-      <option name="memorySize" value="128" />
-      <option name="pathMappings">
-        <list />
-      </option>
-      <option name="platform" />
-      <option name="runtime" />
-      <option name="templateFile" />
-      <option name="timeout" value="300" />
-      <option name="useTemplate" value="false" />
-      <option name="input" />
-      <option name="inputIsFile" value="false" />
-      <sam>
-        <option name="additionalBuildArgs" />
-        <option name="additionalLocalArgs" />
-        <option name="buildInContainer" value="false" />
-        <option name="dockerNetwork" />
-        <option name="skipImagePull" value="false" />
-      </sam>
-      <method v="2" />
-    </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -369,12 +248,7 @@
       <workItem from="1713292012887" duration="870000" />
       <workItem from="1713550327073" duration="6917000" />
       <workItem from="1713558796926" duration="7347000" />
-      <workItem from="1713788707612" duration="5885000" />
-      <workItem from="1713806443778" duration="1295000" />
-      <workItem from="1713816432890" duration="17000" />
-      <workItem from="1713954678944" duration="9890000" />
-      <workItem from="1713969635554" duration="8590000" />
-      <workItem from="1713978281983" duration="1226000" />
+      <workItem from="1713788707612" duration="7644000" />
     </task>
     <servers />
   </component>
@@ -383,7 +257,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="initd" />
-    <option name="LAST_COMMIT_MESSAGE" value="initd" />
   </component>
 </project>
