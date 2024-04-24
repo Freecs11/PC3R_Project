@@ -18,6 +18,7 @@ public class UserServlet extends HttpServlet {
         this.userService = new UserService();
     }
 
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("application/json");
         String userID = request.getParameter("id");
