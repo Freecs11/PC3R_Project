@@ -37,33 +37,27 @@ public class UserDAO extends HibernateDAO<User>{
 
     public User createUser(String username, String password, String email, String role) {
         User user = new User();
+        user.setId(0);
         user.setUsername(username);
         user.setPassword(hashPassword(password));  // Ensuring password is hashed before saving
         user.setEmail(email);
         user.setRole(role);
         user.setCreatedAt(Instant.now());
+        user.setCoinId(0);
+        user.setPosition("user");
 
-        try (Session session = getSession()) {
-            Transaction tx = null;
-            try {
-                tx = session.beginTransaction();
-                session.save(user);  // Save the user to generate the ID
-                tx.commit();
+        save(user);
 
-                // After user is saved and ID is generated
-                CoinService coinService = new CoinService();
-                Integer coinId = coinService.generateCoinId(user.getId());
-                user.setCoinId(coinId);
-                session.beginTransaction();
-                session.update(user);  // Update user to set Coin ID
-                session.getTransaction().commit();
-            } catch (Exception e) {
-                if (tx != null) {
-                    tx.rollback();
-                }
-                throw e;  // Rethrow to be handled or logged by the caller
-            }
-        }
+
+
+        // After user is saved and ID is generated
+        CoinService coinService = new CoinService();
+        System.out.println("User ID: " + user.getId());
+        Integer coinId = coinService.generateCoinId(user.getId());
+        user.setCoinId(coinId);
+
+        // Update user with coinId
+        update(user);
 
         return user;
     }
