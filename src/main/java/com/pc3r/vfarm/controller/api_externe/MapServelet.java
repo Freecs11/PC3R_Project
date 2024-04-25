@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-@WebServlet("/ipapi")
+@WebServlet(name = "MapServelet" , value = "/ipapi")
 public class MapServelet extends HttpServlet {
 
     @Override

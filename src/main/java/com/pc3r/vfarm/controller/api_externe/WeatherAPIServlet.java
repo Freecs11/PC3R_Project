@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-@WebServlet(name = "weatherAPIServlet", urlPatterns = {"/weather-api"})
+@WebServlet(name = "WeatherAPIServlet", value = "/weather-api")
 public class WeatherAPIServlet extends HttpServlet {
 
     private static final String API_KEY = "c3053ddd2658400182e170051242404";

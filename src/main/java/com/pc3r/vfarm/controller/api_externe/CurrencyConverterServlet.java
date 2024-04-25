@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-@WebServlet(name="Currency Currency" , value="/convertCurrency")
+@WebServlet(name = "CurrencyConverterServlet" , value = "/convertCurrency")
 public class CurrencyConverterServlet extends HttpServlet {
 
     private static final String API_KEY = "fca_live_fs6Lx96pdAjNNUwwWxP7JHjSY5gRyKjWcsh3EC8m";
