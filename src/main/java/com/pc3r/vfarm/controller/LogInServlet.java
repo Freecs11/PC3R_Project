@@ -27,6 +27,7 @@ public class LogInServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+
         // Set the content type of response to "text/html"
         response.setContentType("application/json");
 
