@@ -38,7 +38,5 @@ public class UserServlet extends HttpServlet {
 
         userService.save(user);
         out.println("{\"status\": \"success\"}");
-
-
     }
 }

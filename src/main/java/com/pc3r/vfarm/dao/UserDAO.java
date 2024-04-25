@@ -6,8 +6,4 @@ public class UserDAO extends HibernateDAO<User>{
     public UserDAO() {
         super(User.class);
     }
-
-
-
-
 }
