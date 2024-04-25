@@ -9,5 +9,8 @@
         <module name="VirtuelFarm" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="VFarm" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
