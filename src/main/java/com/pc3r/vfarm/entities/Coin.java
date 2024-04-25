@@ -17,21 +17,17 @@ public class Coin {
     @Column(name = "\"ID\"", nullable = false)
     private Integer id;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "\"OWNER_ID\"", nullable = false)
     private User owner;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"SYMBOL\"", nullable = false)
     private String symbol;
 
-    @NotNull
     @Column(name = "\"VALUE\"", nullable = false)
     private BigDecimal value;
 
-    @NotNull
     @Column(name = "\"LAST_UPDATED\"", nullable = false)
     private Instant lastUpdated;
 

@@ -14,17 +14,14 @@ public class Log {
     @Column(name = "\"ID\"", nullable = false)
     private Integer id;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "\"USER_ID\"", nullable = false)
     private User user;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"ACTION\"", nullable = false)
     private String action;
 
-    @NotNull
     @Column(name = "\"CREATED_AT\"", nullable = false)
     private Instant createdAt;
 

@@ -17,9 +17,9 @@ public class HibernateDAO<T> implements IHibernateDAO<T> {
 
     @Override
     public void save(T entity) {
-        SessionFactory sessionFactory = getSessionFactory();
+        Session session = getSessionFactory().openSession();
         Transaction tx = null;
-        try (sessionFactory; Session session = sessionFactory.openSession()) {
+        try {
             tx = session.beginTransaction();
             session.save(entity);
             tx.commit();
@@ -28,14 +28,16 @@ public class HibernateDAO<T> implements IHibernateDAO<T> {
                 tx.rollback();
             }
             e.printStackTrace();
+        } finally {
+            session.close();
         }
     }
 
     @Override
     public void update(T entity) {
-        SessionFactory sessionFactory = getSessionFactory();
+        Session session = getSessionFactory().openSession();
         Transaction tx = null;
-        try (sessionFactory; Session session = sessionFactory.openSession()) {
+        try {
             tx = session.beginTransaction();
             session.update(entity);
             tx.commit();
@@ -44,14 +46,16 @@ public class HibernateDAO<T> implements IHibernateDAO<T> {
                 tx.rollback();
             }
             e.printStackTrace();
+        } finally {
+            session.close();
         }
     }
 
     @Override
     public void delete(T entity) {
-        SessionFactory sessionFactory = getSessionFactory();
+        Session session = getSessionFactory().openSession();
         Transaction tx = null;
-        try (sessionFactory; Session session = sessionFactory.openSession()) {
+        try {
             tx = session.beginTransaction();
             session.delete(entity);
             tx.commit();
@@ -60,17 +64,25 @@ public class HibernateDAO<T> implements IHibernateDAO<T> {
                 tx.rollback();
             }
             e.printStackTrace();
+        } finally {
+            session.close();
         }
     }
 
     @Override
     public T findById(long id) {
-        SessionFactory sessionFactory = getSessionFactory();
-        try (sessionFactory; Session session = sessionFactory.openSession()) {
-            return session.get(clazz, id);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        Session session = getSessionFactory().openSession();
+        T entity = session.get(clazz, id);
+        session.close();
+        return entity;
     }
+
+    @Override
+    public Session getSession() {
+        SessionFactory sessionFactory = getSessionFactory();
+        return sessionFactory.openSession();
+
+    }
+
+
 }
