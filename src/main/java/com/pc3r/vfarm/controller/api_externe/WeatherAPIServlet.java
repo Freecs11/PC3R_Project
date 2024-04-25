@@ -1,4 +1,4 @@
-package com.pc3r.vfarm.controller;
+package com.pc3r.vfarm.controller.api_externe;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

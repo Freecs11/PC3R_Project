@@ -10,59 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf0aa55c-3c3d-42d4-852d-5d86b02f36c4" name="Changes" comment="merge">
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/CoinDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/CoinDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/DungeonDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/DungeonDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/DungeonTraitDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/DungeonTraitDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/ItemDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/ItemDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/LogDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/LogDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/PetDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/PetDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/PetTraitDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/PetTraitDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/ResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/ResponseDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/RewardDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/RewardDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/UserDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/CurrencyConverterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/CurrencyConverterServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/HelloServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/HelloServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/LogInServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/LogInServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/LogOutServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/LogOutServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/MapServelet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/MapServelet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/TestAuth.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/TestAuth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/UserServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/WeatherAPIServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/WeatherAPIServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/users/SignupServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/controller/users/SignupServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/CoinDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/CoinDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/DungeonDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/DungeonDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/DungeonTraitDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/DungeonTraitDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/HibernateDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/HibernateDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/ItemDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/ItemDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/LogDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/LogDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/PetDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/PetDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/PetTraitDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/PetTraitDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/RewardDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/RewardDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/interfaces/IHibernateDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/interfaces/IHibernateDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/database/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/database/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Coin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Coin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Dungeon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/DungeonTrait.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/DungeonTrait.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Log.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Pet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Pet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/PetTrait.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/PetTrait.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Reward.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Reward.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/middleware/AuthFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/middleware/AuthFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/CoinService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/CoinService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/DungeonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/DungeonService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/DungeonTraitService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/DungeonTraitService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/GenericService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/GenericService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/ItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/ItemService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/LogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/LogService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/PetService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/PetService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/PetTraitService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/PetTraitService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/RewardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/RewardService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/CurrencyConverterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/api_externe/CurrencyConverterServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/LogInServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/auth/LogInServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/LogOutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/auth/LogOutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/MapServelet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/api_externe/MapServelet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/TestAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/auth/TestAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/users/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/WeatherAPIServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/api_externe/WeatherAPIServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,9 +59,9 @@
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="KubernetesSettings">
     <option name="contextName" value="minikube" />
   </component>
@@ -127,41 +83,41 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2eJltpKYHty9xGOM5ONkcGIcd8E" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;JPA.DatabaseSchemaImportDialog&quot;: &quot;ec2bd2a8-5614-432b-b58f-cb8a078c30b6&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Tomcat Server.Tomcat 10.1.20.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "JPA.DatabaseSchemaImportDialog": "ec2bd2a8-5614-432b-b58f-cb8a078c30b6",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 10.1.20.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Admin\IdeaProjects\pc3r_project\src\main\resources" />

@@ -1,4 +1,4 @@
-package com.pc3r.vfarm.controller;
+package com.pc3r.vfarm.controller.api_externe;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-@WebServlet("/convertCurrency")
+@WebServlet(name="Currency Currency" , value="/convertCurrency")
 public class CurrencyConverterServlet extends HttpServlet {
 
     private static final String API_KEY = "fca_live_fs6Lx96pdAjNNUwwWxP7JHjSY5gRyKjWcsh3EC8m";

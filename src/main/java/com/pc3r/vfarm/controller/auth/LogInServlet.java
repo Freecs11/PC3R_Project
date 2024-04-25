@@ -1,4 +1,4 @@
-package com.pc3r.vfarm.controller;
+package com.pc3r.vfarm.controller.auth;
 
 
 import com.pc3r.vfarm.dao.UserDAO;

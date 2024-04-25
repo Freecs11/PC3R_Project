@@ -1,0 +1,9 @@
+# git ignore config for tomcat servlet project
+
+# Ignore all target directories
+target/
+
+# Ignore all .class files
+*.class
+# Ignore all .iml files
+*.iml

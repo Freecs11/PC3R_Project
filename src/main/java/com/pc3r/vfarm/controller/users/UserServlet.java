@@ -1,4 +1,4 @@
-package com.pc3r.vfarm.controller;
+package com.pc3r.vfarm.controller.users;
 
 import com.pc3r.vfarm.DTO.ResponseDTO;
 import com.pc3r.vfarm.DTO.UserDto;
