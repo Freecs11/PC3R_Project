@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class Dungeon {
     private String type;
 
     @Column(name = "\"CREATED_AT\"", nullable = false)
-    private Instant createdAt;
+    private Timestamp createdAt;
 
     @Column(name = "\"LOCAL_X\"", nullable = false, precision = 38, scale = 2)
     private BigDecimal localX;
@@ -35,18 +36,28 @@ public class Dungeon {
     private BigDecimal localY;
 
     @Column(name = "\"TIME\"", nullable = false)
-    private Instant time;
+    private Timestamp time;
 
-    @Column(name = "\"STATUS\"", nullable = false)
+    @Column(name = "\"status\"")
     private String status;
 
-    @Column(name = "\"SELECTED_ITEMS\"" , nullable = false)
+    @Column(name = "\"selected_items\"")
     private String selectedItems;
 
-    @Column(name = "\"COMBAT_DETAILS\"" , nullable = false)
+    @Column(name = "\"combat_details\"")
     private String combatDetails;
 
+    @Column(name = "\"userid\"")
+    private Integer userFightingId;
 
+
+    public Integer getUserFightingId() {
+        return userFightingId;
+    }
+
+    public void setUserFightingId(Integer userFightingId) {
+        this.userFightingId = userFightingId;
+    }
 
     public Integer getId() {
         return id;
@@ -80,11 +91,11 @@ public class Dungeon {
         this.type = type;
     }
 
-    public Instant getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Instant createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -104,11 +115,11 @@ public class Dungeon {
         this.localY = localY;
     }
 
-    public Instant getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Instant time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 

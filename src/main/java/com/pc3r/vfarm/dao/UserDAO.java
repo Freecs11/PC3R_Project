@@ -5,6 +5,7 @@ import com.pc3r.vfarm.service.CoinService;
 import org.mindrot.jbcrypt.BCrypt;
 
 
+import java.sql.Timestamp;
 import java.time.Instant;
 
 public class UserDAO extends HibernateDAO<User>{
@@ -35,7 +36,7 @@ public class UserDAO extends HibernateDAO<User>{
         user.setPassword(hashPassword(password));  // Ensuring password is hashed before saving
         user.setEmail(email);
         user.setRole(role);
-        user.setCreatedAt(Instant.now());
+        user.setCreatedAt(Timestamp.from(Instant.now()));
         user.setPosition("user");
         save(user);  // This method should be responsible for persisting the user entity
         return user;

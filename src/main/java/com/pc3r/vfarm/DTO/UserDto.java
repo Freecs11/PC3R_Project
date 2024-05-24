@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -18,13 +19,13 @@ public class UserDto implements Serializable {
     private  String password;
     @Size(max = 255)
     private  String email;
-    private  Instant createdAt;
+    private Timestamp createdAt;
     @Size(max = 255)
     private  String position;
     @Size(max = 255)
     private  String role;
 
-    public UserDto(Integer id, String username, String password, String email, Instant createdAt, String position, String role) {
+    public UserDto(Integer id, String username, String password, String email, Timestamp createdAt, String position, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -54,7 +55,7 @@ public class UserDto implements Serializable {
         return email;
     }
 
-    public Instant getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
@@ -109,7 +110,7 @@ public class UserDto implements Serializable {
         this.email = email;
     }
 
-    public void setCreatedAt(Instant createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -126,7 +127,7 @@ public class UserDto implements Serializable {
     }
 
     public void setCreatedAt() {
-        this.createdAt = Instant.now();
+        this.createdAt = Timestamp.from(Instant.now());
     }
 
 

@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.ColumnDefault;
+import java.sql.Timestamp;
 
-import java.time.Instant;
 
 @Entity
 @Table(name = "\"USERS\"")
@@ -27,7 +27,7 @@ public class User {
     private String email;
 
     @Column(name = "\"CREATED_AT\"", nullable = false)
-    private Instant createdAt;
+    private Timestamp  createdAt;
 
     @Size(max = 255)
     @Column(name = "\"POSITION\"", nullable = false)
@@ -69,11 +69,11 @@ public class User {
         this.email = email;
     }
 
-    public Instant getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Instant createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 

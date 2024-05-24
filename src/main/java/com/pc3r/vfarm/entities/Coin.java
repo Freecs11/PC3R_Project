@@ -8,6 +8,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.Instant;
 
 @Entity
@@ -30,7 +31,7 @@ public class Coin {
 
     @NotNull
     @Column(name = "\"LAST_UPDATED\"", nullable = false)
-    private Instant lastUpdated;
+    private Timestamp lastUpdated;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.SET_NULL)
@@ -61,11 +62,11 @@ public class Coin {
         this.value = value;
     }
 
-    public Instant getLastUpdated() {
+    public Timestamp getLastUpdated() {
         return lastUpdated;
     }
 
-    public void setLastUpdated(Instant lastUpdated) {
+    public void setLastUpdated(Timestamp lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 

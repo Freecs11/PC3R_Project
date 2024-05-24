@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -14,10 +15,10 @@ public class LogDto implements Serializable {
     private final Integer id;
     @Size(max = 255)
     private final String action;
-    private final Instant createdAt;
+    private final Timestamp createdAt;
     private final UserDto user;
 
-    public LogDto(Integer id, String action, Instant createdAt,
+    public LogDto(Integer id, String action, Timestamp createdAt,
                   UserDto user) {
         this.id = id;
         this.action = action;
@@ -33,7 +34,7 @@ public class LogDto implements Serializable {
         return action;
     }
 
-    public Instant getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 

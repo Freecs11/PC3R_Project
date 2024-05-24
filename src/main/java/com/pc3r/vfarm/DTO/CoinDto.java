@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -16,10 +17,10 @@ public class CoinDto implements Serializable {
     @Size(max = 255)
     private final String symbol;
     private final BigDecimal value;
-    private final Instant lastUpdated;
+    private final Timestamp lastUpdated;
     private final UserDto owner;
 
-    public CoinDto(Integer id, String symbol, BigDecimal value, Instant lastUpdated,
+    public CoinDto(Integer id, String symbol, BigDecimal value, Timestamp lastUpdated,
                    UserDto owner) {
         this.id = id;
         this.symbol = symbol;
@@ -40,7 +41,7 @@ public class CoinDto implements Serializable {
         return value;
     }
 
-    public Instant getLastUpdated() {
+    public Timestamp getLastUpdated() {
         return lastUpdated;
     }
 

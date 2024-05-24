@@ -8,11 +8,10 @@ public class DungeonDAO extends HibernateDAO<Dungeon>{
     }
 
     public Dungeon getDungeonById(String id) {
-        String query = "from Dungeon where id = :id";
-        return (Dungeon) getSession().createQuery(query).setParameter("id", id).uniqueResult();
+        return getSession().get(Dungeon.class, id);
     }
 
     public void updateDungeon(Dungeon dungeon) {
-        getSession().update(dungeon);
+        update(dungeon);
     }
 }

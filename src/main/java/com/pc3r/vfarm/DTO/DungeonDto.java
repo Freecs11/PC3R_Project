@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -18,16 +19,17 @@ public class DungeonDto implements Serializable {
     private  String name;
     @Size(max = 255)
     private  String type;
-    private  Instant createdAt;
+    private Timestamp createdAt;
     private  BigDecimal localX;
     private  BigDecimal localY;
-    private  Instant time;
+    private  Timestamp time;
     private String status;
     private String selectedItems;
     private String combatDetails;
+    private Integer userFightingId;
 
 
-    public DungeonDto(Integer id, String name, String type, Instant createdAt, BigDecimal localX, BigDecimal localY, Instant time , String status , String selectedItems , String combatDetails) {
+    public DungeonDto(Integer id, String name, String type, Timestamp createdAt, BigDecimal localX, BigDecimal localY, Timestamp time , String status , String selectedItems , String combatDetails, Integer userFightingId) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -38,10 +40,19 @@ public class DungeonDto implements Serializable {
         this.status = status;
         this.selectedItems = selectedItems;
         this.combatDetails = combatDetails;
+        this.userFightingId = userFightingId;
     }
 
     public DungeonDto(){
 
+    }
+
+    public Integer getUserFightingId() {
+        return userFightingId;
+    }
+
+    public void setUserFightingId(Integer userFightingId) {
+        this.userFightingId = userFightingId;
     }
 
     public String getSelectedItems() {
@@ -72,7 +83,7 @@ public class DungeonDto implements Serializable {
         this.type = type;
     }
 
-    public void setCreatedAt(Instant createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -80,7 +91,7 @@ public class DungeonDto implements Serializable {
         this.localY = localY;
     }
 
-    public void setTime(Instant time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 
@@ -100,7 +111,7 @@ public class DungeonDto implements Serializable {
         return type;
     }
 
-    public Instant getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
@@ -112,7 +123,7 @@ public class DungeonDto implements Serializable {
         return localY;
     }
 
-    public Instant getTime() {
+    public Timestamp getTime() {
         return time;
     }
 

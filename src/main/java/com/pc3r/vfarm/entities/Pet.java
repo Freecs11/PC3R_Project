@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.ColumnDefault;
 
+import java.sql.Timestamp;
 import java.time.Instant;
 
 @Entity
@@ -27,11 +28,11 @@ public class Pet {
 
     @NotNull
     @Column(name = "\"PURCHASED_AT\"", nullable = false)
-    private Instant purchasedAt;
+    private Timestamp purchasedAt;
 
     @NotNull
     @Column(name = "\"CREATED_AT\"", nullable = false)
-    private Instant createdAt;
+    private Timestamp createdAt;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -66,19 +67,19 @@ public class Pet {
         this.type = type;
     }
 
-    public Instant getPurchasedAt() {
+    public Timestamp getPurchasedAt() {
         return purchasedAt;
     }
 
-    public void setPurchasedAt(Instant purchasedAt) {
+    public void setPurchasedAt(Timestamp purchasedAt) {
         this.purchasedAt = purchasedAt;
     }
 
-    public Instant getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Instant createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 

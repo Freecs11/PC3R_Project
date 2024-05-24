@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.ColumnDefault;
 
+import java.sql.Timestamp;
 import java.time.Instant;
 
 @Entity
@@ -27,7 +28,7 @@ public class Log {
 
     @NotNull
     @Column(name = "\"CREATED_AT\"", nullable = false)
-    private Instant createdAt;
+    private Timestamp createdAt;
 
     public Integer getId() {
         return id;
@@ -53,11 +54,11 @@ public class Log {
         this.action = action;
     }
 
-    public Instant getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Instant createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 

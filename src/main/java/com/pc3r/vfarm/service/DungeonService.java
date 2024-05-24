@@ -16,8 +16,9 @@ import java.util.List;
 import java.util.Random;
 
 public class DungeonService extends GenericService<Dungeon> {
-    private final PetDAO petDAO;  // Assuming you have a PetDAO to fetch user pets
+    private final PetDAO petDAO;
     private final DungeonTraitDAO dungeonTraitDAO;
+
     public DungeonService() {
         super(new DungeonDAO());
         this.petDAO = new PetDAO();
@@ -25,43 +26,46 @@ public class DungeonService extends GenericService<Dungeon> {
     }
 
     public ResponseDTO getDungeonInfo(String id) {
-        // Logic to get dungeon info
         Dungeon dungeon = ((DungeonDAO) dao).getDungeonById(id);
-        // response in json format
-        String response = "{\n" +
-                "  \"id\": " + dungeon.getId() + ",\n" +
-                "  \"name\": \"" + dungeon.getName() + "\",\n" +
-                "  \"position_x\": " + dungeon.getLocalX() + ",\n" +
-                "  \"position_y\": " + dungeon.getLocalY() + ",\n" +
-                "  \"createdAt\": \"" + dungeon.getCreatedAt() + "\",\n" +
-                "  \"status\": \"" + dungeon.getStatus() + "\"\n" +
-                "}";
+        Gson gson = new Gson();
+        String response = gson.toJson(dungeon);
         return new ResponseDTO("success", response);
-     }
+    }
 
-    public ResponseDTO initiateFight(String id) {
+    public ResponseDTO initiateFight(String id, int userId) {
         Dungeon dungeon = ((DungeonDAO) dao).getDungeonById(id);
-        if (!dungeon.getStatus().equals("idle")) {
+        if (!"idle".equals(dungeon.getStatus())) {
             return new ResponseDTO("error", "Dungeon is not idle");
         }
+        if (dungeon.getUserFightingId() != null) {
+            return new ResponseDTO("error", "Dungeon is already in use");
+        }
         dungeon.setStatus("in fight");
+        dungeon.setUserFightingId(userId);
         ((DungeonDAO) dao).updateDungeon(dungeon);
         return new ResponseDTO("success", "Fight initiated for dungeon id " + id);
     }
 
-    public ResponseDTO resetDungeon(String id) {
-        Dungeon dungeon =((DungeonDAO) dao).getDungeonById(id);
+    public ResponseDTO resetDungeon(String id, int userId) {
+        Dungeon dungeon = ((DungeonDAO) dao).getDungeonById(id);
+        if (!"in fight".equals(dungeon.getStatus()) || userId != dungeon.getUserFightingId()) {
+            return new ResponseDTO("error", "Not authorized to reset the dungeon");
+        }
         dungeon.setStatus("idle");
         dungeon.setCombatDetails(null);
         dungeon.setSelectedItems(null);
+        dungeon.setUserFightingId(null);
         ((DungeonDAO) dao).updateDungeon(dungeon);
         return new ResponseDTO("success", "Dungeon id " + id + " has been reset");
     }
 
-    public ResponseDTO selectItems(String id, String itemsJson) {
+    public ResponseDTO selectItems(String id, String itemsJson, int userId) {
+        Dungeon dungeon = ((DungeonDAO) dao).getDungeonById(id);
+        if (userId!= dungeon.getUserFightingId()) {
+            return new ResponseDTO("error", "Not authorized to select items for this dungeon");
+        }
         List<Integer> itemIds = parseItemIdsFromJson(itemsJson);
         String itemIdsSerializedtoJSON = new Gson().toJson(itemIds);
-        Dungeon dungeon = ((DungeonDAO) dao).getDungeonById(id);
         dungeon.setSelectedItems(itemIdsSerializedtoJSON);
         ((DungeonDAO) dao).updateDungeon(dungeon);
         return new ResponseDTO("success", "Items selected for dungeon id " + id);
@@ -69,17 +73,18 @@ public class DungeonService extends GenericService<Dungeon> {
 
     public ResponseDTO engageCombat(String id, String combatDetailsJson) {
         Dungeon dungeon = ((DungeonDAO) dao).getDungeonById(id);
-        dungeon.setCombatDetails(combatDetailsJson);
-        ((DungeonDAO) dao).updateDungeon(dungeon);
-
-        // fetch the combat details from the dungeon
-        // it's a json string , { userId : 1 , selectedPets : [1,2,3] }
         Gson gson = new Gson();
         JsonObject jsonObject = gson.fromJson(combatDetailsJson, JsonObject.class);
         int userId = jsonObject.get("userId").getAsInt();
         JsonArray jsonArray = jsonObject.getAsJsonArray("selectedPets");
 
-        // Fetch the pets of the user by their ids in the json array
+        if (userId!=dungeon.getUserFightingId()) {
+            return new ResponseDTO("error", "Not authorized to engage combat for this dungeon");
+        }
+
+        dungeon.setCombatDetails(combatDetailsJson);
+        ((DungeonDAO) dao).updateDungeon(dungeon);
+
         List<Pet> pets = new ArrayList<>();
         for (int i = 0; i < jsonArray.size(); i++) {
             int petId = jsonArray.get(i).getAsInt();
@@ -87,26 +92,19 @@ public class DungeonService extends GenericService<Dungeon> {
             pets.add(pet);
         }
 
-        // Fetch the dungeon traits
         List<DungeonTrait> dungeonTraits = dungeonTraitDAO.getDungeonTraitsByDungeonId(id);
 
-        // Calculate the total strength of the pets
         int totalPetStrength = pets.stream().mapToInt(Pet::getHealth).sum();
-
-        // Calculate the total strength of the dungeon
         int totalDungeonStrength = dungeonTraits.stream().mapToInt(dungeonTrait -> dungeonTrait.getValue().intValue()).sum();
 
-        // Determine combat outcome
         String combatResult;
         if (totalPetStrength > totalDungeonStrength) {
             combatResult = "Victory! Your pets defeated the dungeon.";
-
             dungeon.setStatus("idle");
+            dungeon.setUserFightingId(null);
             ((DungeonDAO) dao).updateDungeon(dungeon);
-
             // Award the user with some rewards
             // awardUser(userId, dungeon);
-
         } else {
             combatResult = "Defeat! Your pets were not strong enough.";
         }
@@ -115,8 +113,6 @@ public class DungeonService extends GenericService<Dungeon> {
     }
 
     private List<Integer> parseItemIdsFromJson(String itemsJson) {
-        // Parse the item IDs from the JSON string
-        // JSON format: { "itemIds": [1, 2, 3] }
         List<Integer> itemIds = new ArrayList<>();
         Gson gson = new Gson();
         JsonObject jsonObject = gson.fromJson(itemsJson, JsonObject.class);

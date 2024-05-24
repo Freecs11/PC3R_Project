@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -16,12 +17,12 @@ public class PetDto implements Serializable {
     private final String name;
     @Size(max = 255)
     private final String type;
-    private final Instant purchasedAt;
-    private final Instant createdAt;
+    private final Timestamp purchasedAt;
+    private final Timestamp createdAt;
     private final Integer health;
     private final UserDto owner;
 
-    public PetDto(Integer id, String name, String type, Instant purchasedAt, Instant createdAt, Integer health,
+    public PetDto(Integer id, String name, String type, Timestamp purchasedAt, Timestamp createdAt, Integer health,
                   UserDto owner) {
         this.id = id;
         this.name = name;
@@ -44,11 +45,11 @@ public class PetDto implements Serializable {
         return type;
     }
 
-    public Instant getPurchasedAt() {
+    public Timestamp getPurchasedAt() {
         return purchasedAt;
     }
 
-    public Instant getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 

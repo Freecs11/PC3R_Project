@@ -3,6 +3,7 @@ package com.pc3r.vfarm.dao;
 import com.pc3r.vfarm.entities.Coin;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.Instant;
 
 public class CoinDAO extends HibernateDAO<Coin> {
@@ -125,7 +126,7 @@ public class CoinDAO extends HibernateDAO<Coin> {
         coin.setValue(value);
 
         coin.setOwner(new UserDAO().findById(ownerId));
-        coin.setLastUpdated(Instant.now());
+        coin.setLastUpdated(Timestamp.from(Instant.now()));
         getSession().save(coin);
         return coin;
     }
@@ -138,7 +139,7 @@ public class CoinDAO extends HibernateDAO<Coin> {
     public Coin updateCoin(Integer coinId, BigDecimal value) {
         Coin coin = findById(coinId);
         coin.setValue(value);
-        coin.setLastUpdated(Instant.now());
+        coin.setLastUpdated(Timestamp.from(Instant.now()));
         getSession().update(coin);
         return coin;
     }
