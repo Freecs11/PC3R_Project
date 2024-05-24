@@ -3,42 +3,42 @@ package com.pc3r.vfarm.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.Instant;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Entity
-@Table(name = "\"PETS\"", schema = "public")
+@Table(name = "\"PETS\"")
 public class Pet {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pet_seq")
     @Column(name = "\"ID\"", nullable = false)
     private Integer id;
 
     @Size(max = 255)
-    @Column(name = "\"NAME\"", nullable = false)
+    @NotNull
+    @Column(name = "\"NAME\"")
     private String name;
 
     @Size(max = 255)
+    @NotNull
     @Column(name = "\"TYPE\"", nullable = false)
     private String type;
 
+    @NotNull
     @Column(name = "\"PURCHASED_AT\"", nullable = false)
     private Instant purchasedAt;
 
-    @Column(name = "\"CREATED_AT\"", nullable = false)
+    @Column(name = "\"CREATED_AT\"")
     private Instant createdAt;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "\"OWNER_ID\"", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "\"OWNER_ID\"")
     private User owner;
 
+    @NotNull
     @Column(name = "\"HEALTH\"", nullable = false)
     private Integer health;
-
-    @OneToMany(mappedBy = "pet")
-    private Set<PetTrait> petTraits = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -96,12 +96,16 @@ public class Pet {
         this.health = health;
     }
 
-    public Set<PetTrait> getPetTraits() {
-        return petTraits;
-    }
-
-    public void setPetTraits(Set<PetTrait> petTraits) {
-        this.petTraits = petTraits;
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", purchasedAt=" + purchasedAt +
+                ", createdAt=" + createdAt +
+                ", health=" + health +
+                '}';
     }
 
 }

@@ -2,6 +2,8 @@ package com.pc3r.vfarm.dao;
 
 import com.pc3r.vfarm.entities.Pet;
 
+import java.util.List;
+
 public class PetDAO extends HibernateDAO<Pet>{
     public PetDAO() {
         super(Pet.class);
@@ -13,10 +15,20 @@ public class PetDAO extends HibernateDAO<Pet>{
                 .uniqueResult();
     }
 
-    public void SavePet(Pet pet) {
-        System.out.println(pet.toString());
+    //getPetsByOwnerId
+    public List getPetsByOwnerId(int ownerId) {
+        return getSession().createQuery("from Pet where owner.id = :ownerId")
+                .setParameter("ownerId", ownerId)
+                .list();
+    }
+
+//    save
+    public void savePet(Pet pet) {
         save(pet);
     }
 
-
+    // delete
+    public void deletePet(Pet pet) {
+        delete(pet);
+    }
 }

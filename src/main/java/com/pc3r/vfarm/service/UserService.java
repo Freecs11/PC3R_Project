@@ -16,9 +16,6 @@ public class UserService extends GenericService<User>{
         return ((UserDAO) dao).getUserByEmail(email);
     }
 
-    public User getUserByCoinId(String coinId) {
-        return ((UserDAO) dao).getUserByCoinId(coinId);
-    }
 
     public User createUser(String username, String password, String email, String role) {
         return ((UserDAO) dao).createUser(username, password, email, role);

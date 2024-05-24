@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * DTO for {@link com.pc3r.vfarm.entities.Pet}
@@ -21,11 +20,9 @@ public class PetDto implements Serializable {
     private final Instant createdAt;
     private final Integer health;
     private final UserDto owner;
-    private final Set<PetTraitDto> petTraits;
 
     public PetDto(Integer id, String name, String type, Instant purchasedAt, Instant createdAt, Integer health,
-                  UserDto owner,
-                  Set<PetTraitDto> petTraits) {
+                  UserDto owner) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -33,7 +30,6 @@ public class PetDto implements Serializable {
         this.createdAt = createdAt;
         this.health = health;
         this.owner = owner;
-        this.petTraits = petTraits;
     }
 
     public Integer getId() {
@@ -91,9 +87,5 @@ public class PetDto implements Serializable {
 
     public UserDto getOwner() {
         return owner;
-    }
-
-    public Set<PetTraitDto> getPetTraits() {
-        return petTraits;
     }
 }

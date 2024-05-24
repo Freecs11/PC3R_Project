@@ -3,40 +3,46 @@ package com.pc3r.vfarm.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
-@Table(name = "\"ITEMS\"", schema = "public")
+@Table(name = "\"ITEMS\"")
 public class Item {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ColumnDefault("nextval('\"ITEMS_ID_seq\"'")
     @Column(name = "\"ID\"", nullable = false)
     private Integer id;
 
     @Size(max = 255)
+    @NotNull
     @Column(name = "\"NAME\"", nullable = false)
     private String name;
 
     @Size(max = 255)
+    @NotNull
     @Column(name = "\"TYPE\"", nullable = false)
     private String type;
 
+    @NotNull
     @Column(name = "\"CREATED_AT\"", nullable = false)
     private Instant createdAt;
 
     @Column(name = "\"PURCHASED_AT\"")
     private Instant purchasedAt;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "\"OWNER_ID\"", nullable = false)
     private User owner;
 
+    @NotNull
     @Column(name = "\"DURABILITY\"", nullable = false)
     private Integer durability;
 
-    @Column(name = "\"VALUE\"")
+    @Column(name = "\"VALUE\"", precision = 38, scale = 2)
     private BigDecimal value;
 
     public Integer getId() {

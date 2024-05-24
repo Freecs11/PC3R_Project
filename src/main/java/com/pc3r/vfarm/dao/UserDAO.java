@@ -2,8 +2,6 @@ package com.pc3r.vfarm.dao;
 
 import com.pc3r.vfarm.entities.User;
 import com.pc3r.vfarm.service.CoinService;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.mindrot.jbcrypt.BCrypt;
 
 
@@ -25,10 +23,6 @@ public class UserDAO extends HibernateDAO<User>{
         return (User) getSession().createQuery(query).setParameter("email", email).uniqueResult();
     }
 
-    public User getUserByCoinId(String coinId) {
-        String query = "from User where coinId = :coinId";
-        return (User) getSession().createQuery(query).setParameter("coinId", coinId).uniqueResult();
-    }
 
     private String hashPassword(String plainTextPassword){
         return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
@@ -37,31 +31,15 @@ public class UserDAO extends HibernateDAO<User>{
 
     public User createUser(String username, String password, String email, String role) {
         User user = new User();
-        user.setId(0);
         user.setUsername(username);
         user.setPassword(hashPassword(password));  // Ensuring password is hashed before saving
         user.setEmail(email);
         user.setRole(role);
         user.setCreatedAt(Instant.now());
-        user.setCoinId(0);
         user.setPosition("user");
-
-        save(user);
-
-
-
-        // After user is saved and ID is generated
-        CoinService coinService = new CoinService();
-        System.out.println("User ID: " + user.getId());
-        Integer coinId = coinService.generateCoinId(user.getId());
-        user.setCoinId(coinId);
-
-        // Update user with coinId
-        update(user);
-
+        save(user);  // This method should be responsible for persisting the user entity
         return user;
     }
-
 
 
 

@@ -7,7 +7,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * DTO for {@link com.pc3r.vfarm.entities.Dungeon}
@@ -22,12 +21,8 @@ public class DungeonDto implements Serializable {
     private final BigDecimal localX;
     private final BigDecimal localY;
     private final Instant time;
-    private final Set<DungeonTraitDto> dungeonTraits;
-    private final Set<RewardDto> rewards;
 
-    public DungeonDto(Integer id, String name, String type, Instant createdAt, BigDecimal localX, BigDecimal localY, Instant time,
-                      Set<DungeonTraitDto> dungeonTraits,
-                      Set<RewardDto> rewards) {
+    public DungeonDto(Integer id, String name, String type, Instant createdAt, BigDecimal localX, BigDecimal localY, Instant time) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -35,8 +30,6 @@ public class DungeonDto implements Serializable {
         this.localX = localX;
         this.localY = localY;
         this.time = time;
-        this.dungeonTraits = dungeonTraits;
-        this.rewards = rewards;
     }
 
     public Integer getId() {
@@ -96,13 +89,5 @@ public class DungeonDto implements Serializable {
                 "localX = " + localX + ", " +
                 "localY = " + localY + ", " +
                 "time = " + time + ")";
-    }
-
-    public Set<DungeonTraitDto> getDungeonTraits() {
-        return dungeonTraits;
-    }
-
-    public Set<RewardDto> getRewards() {
-        return rewards;
     }
 }

@@ -3,25 +3,29 @@ package com.pc3r.vfarm.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.Instant;
 
 @Entity
-@Table(name = "\"LOGS\"", schema = "public")
+@Table(name = "\"LOGS\"")
 public class Log {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ColumnDefault("nextval('\"LOGS_ID_seq\"'")
     @Column(name = "\"ID\"", nullable = false)
     private Integer id;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "\"USER_ID\"", nullable = false)
     private User user;
 
     @Size(max = 255)
+    @NotNull
     @Column(name = "\"ACTION\"", nullable = false)
     private String action;
 
+    @NotNull
     @Column(name = "\"CREATED_AT\"", nullable = false)
     private Instant createdAt;
 

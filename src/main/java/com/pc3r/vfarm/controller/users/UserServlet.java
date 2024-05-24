@@ -1,9 +1,8 @@
 package com.pc3r.vfarm.controller.users;
 
-import com.pc3r.vfarm.DTO.ResponseDTO;
-import com.pc3r.vfarm.DTO.UserDto;
 import com.pc3r.vfarm.entities.User;
 import com.pc3r.vfarm.service.UserService;
+import com.pc3r.vfarm.DTO.UserDto;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,9 +27,7 @@ public class UserServlet extends HttpServlet {
         UserDto userDTO = extractUserDTOFromRequest(request);
         User user = convertDTOToUser(userDTO);
         userService.save(user);
-
-        ResponseDTO responseDTO = new ResponseDTO("success", "User created successfully");
-        out.println(responseDTO.toJson());
+        out.println(user.toString());
     }
 
     private UserDto extractUserDTOFromRequest(HttpServletRequest request) {
@@ -38,7 +35,6 @@ public class UserServlet extends HttpServlet {
         userDTO.setUsername(request.getParameter("username"));
         userDTO.setPassword(request.getParameter("password"));
         userDTO.setEmail(request.getParameter("email"));
-        userDTO.setCoinId(Integer.valueOf(request.getParameter("coinId")));
         userDTO.setRole(request.getParameter("role"));
         userDTO.setPosition(request.getParameter("position"));
         userDTO.setCreatedAt(Instant.now());
@@ -50,7 +46,6 @@ public class UserServlet extends HttpServlet {
         user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
         user.setEmail(userDTO.getEmail());
-        user.setCoinId(userDTO.getCoinId());
         user.setRole(userDTO.getRole());
         user.setPosition(userDTO.getPosition());
         user.setCreatedAt(Instant.now());
@@ -65,15 +60,13 @@ public class UserServlet extends HttpServlet {
         if (action.equals("get_user_by_username")) {
             String username = request.getParameter("username");
             User user = userService.getUserByUsername(username);
-            ResponseDTO responseDTO = new ResponseDTO("success", user.toString());
             PrintWriter out = response.getWriter();
-            out.println(responseDTO.toJson());
+            out.println(user.toString());
         } else if (action.equals("get_user_by_email")) {
             String email = request.getParameter("email");
             User user = userService.getUserByEmail(email);
-            ResponseDTO responseDTO = new ResponseDTO("success", user.toString());
             PrintWriter out = response.getWriter();
-            out.println(responseDTO.toJson());
+            out.println(user.toString());
         }
 
     }

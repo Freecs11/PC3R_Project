@@ -1,5 +1,8 @@
 package com.pc3r.vfarm.DTO;
 
+
+import com.google.gson.Gson;
+
 public class ResponseDTO {
     private String status;
     private String message;
@@ -9,23 +12,8 @@ public class ResponseDTO {
         this.message = message;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
     public String toJson() {
-        return "{\"status\": \"" + status + "\", \"message\": \"" + message + "\"}";
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 }

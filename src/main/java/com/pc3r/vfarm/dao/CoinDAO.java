@@ -1,7 +1,6 @@
 package com.pc3r.vfarm.dao;
 
 import com.pc3r.vfarm.entities.Coin;
-import com.pc3r.vfarm.dao.interfaces.IHibernateDAO;
 
 import java.math.BigDecimal;
 import java.time.Instant;
