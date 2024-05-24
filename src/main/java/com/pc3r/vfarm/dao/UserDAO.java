@@ -31,28 +31,15 @@ public class UserDAO extends HibernateDAO<User>{
 
     public User createUser(String username, String password, String email, String role) {
         User user = new User();
-        user.setId(0);
         user.setUsername(username);
         user.setPassword(hashPassword(password));  // Ensuring password is hashed before saving
         user.setEmail(email);
         user.setRole(role);
         user.setCreatedAt(Instant.now());
         user.setPosition("user");
-
-        save(user);
-
-
-
-        // After user is saved and ID is generated
-        CoinService coinService = new CoinService();
-        System.out.println("User ID: " + user.getId());
-        Integer coinId = coinService.generateCoinId(user.getId());
-        // Update user with coinId
-        update(user);
-
+        save(user);  // This method should be responsible for persisting the user entity
         return user;
     }
-
 
 
 
