@@ -3,42 +3,44 @@ package com.pc3r.vfarm.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.Instant;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Entity
-@Table(name = "\"PETS\"", schema = "public")
+@Table(name = "\"PETS\"")
 public class Pet {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ColumnDefault("nextval('\"PETS_ID_seq\"'")
     @Column(name = "\"ID\"", nullable = false)
     private Integer id;
 
     @Size(max = 255)
+    @NotNull
     @Column(name = "\"NAME\"", nullable = false)
     private String name;
 
     @Size(max = 255)
+    @NotNull
     @Column(name = "\"TYPE\"", nullable = false)
     private String type;
 
+    @NotNull
     @Column(name = "\"PURCHASED_AT\"", nullable = false)
     private Instant purchasedAt;
 
+    @NotNull
     @Column(name = "\"CREATED_AT\"", nullable = false)
     private Instant createdAt;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "\"OWNER_ID\"", nullable = false)
     private User owner;
 
+    @NotNull
     @Column(name = "\"HEALTH\"", nullable = false)
     private Integer health;
-
-    @OneToMany(mappedBy = "pet")
-    private Set<PetTrait> petTraits = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -94,14 +96,6 @@ public class Pet {
 
     public void setHealth(Integer health) {
         this.health = health;
-    }
-
-    public Set<PetTrait> getPetTraits() {
-        return petTraits;
-    }
-
-    public void setPetTraits(Set<PetTrait> petTraits) {
-        this.petTraits = petTraits;
     }
 
 }

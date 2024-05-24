@@ -2,26 +2,30 @@ package com.pc3r.vfarm.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "\"REWARDS\"", schema = "public")
+@Table(name = "\"REWARDS\"")
 public class Reward {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ColumnDefault("nextval('\"REWARDS_ID_seq\"'")
     @Column(name = "\"ID\"", nullable = false)
     private Integer id;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "\"DUNGEON_ID\"", nullable = false)
     private Dungeon dungeon;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "\"COIN_ID\"", nullable = false)
     private Coin coin;
 
-    @Column(name = "\"VALUE\"", nullable = false)
+    @NotNull
+    @Column(name = "\"VALUE\"", nullable = false, precision = 38, scale = 2)
     private BigDecimal value;
 
     public Integer getId() {

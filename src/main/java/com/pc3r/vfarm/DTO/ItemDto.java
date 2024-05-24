@@ -21,8 +21,10 @@ public class ItemDto implements Serializable {
     private final Instant purchasedAt;
     private final Integer durability;
     private final BigDecimal value;
+    private final UserDto owner;
 
-    public ItemDto(Integer id, String name, String type, Instant createdAt, Instant purchasedAt, Integer durability, BigDecimal value) {
+    public ItemDto(Integer id, String name, String type, Instant createdAt, Instant purchasedAt, Integer durability, BigDecimal value,
+                   UserDto owner) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -30,6 +32,7 @@ public class ItemDto implements Serializable {
         this.purchasedAt = purchasedAt;
         this.durability = durability;
         this.value = value;
+        this.owner = owner;
     }
 
     public Integer getId() {
@@ -89,5 +92,9 @@ public class ItemDto implements Serializable {
                 "purchasedAt = " + purchasedAt + ", " +
                 "durability = " + durability + ", " +
                 "value = " + value + ")";
+    }
+
+    public UserDto getOwner() {
+        return owner;
     }
 }

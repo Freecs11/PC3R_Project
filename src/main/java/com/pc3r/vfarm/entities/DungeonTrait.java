@@ -3,28 +3,33 @@ package com.pc3r.vfarm.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "\"DUNGEON_TRAITS\"", schema = "public")
+@Table(name = "\"DUNGEON_TRAITS\"")
 public class DungeonTrait {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ColumnDefault("nextval('\"DUNGEON_TRAITS_ID_seq\"'")
     @Column(name = "\"ID\"", nullable = false)
     private Integer id;
 
     @Size(max = 255)
+    @NotNull
     @Column(name = "\"NAME\"", nullable = false)
     private String name;
 
     @Size(max = 255)
+    @NotNull
     @Column(name = "\"DESCRIPTION\"", nullable = false)
     private String description;
 
-    @Column(name = "\"VALUE\"", nullable = false)
+    @NotNull
+    @Column(name = "\"VALUE\"", nullable = false, precision = 38, scale = 2)
     private BigDecimal value;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "\"DUNGEON_ID\"", nullable = false)
     private Dungeon dungeon;

@@ -7,7 +7,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * DTO for {@link com.pc3r.vfarm.entities.Coin}
@@ -19,17 +18,14 @@ public class CoinDto implements Serializable {
     private final BigDecimal value;
     private final Instant lastUpdated;
     private final UserDto owner;
-    private final Set<RewardDto> rewards;
 
     public CoinDto(Integer id, String symbol, BigDecimal value, Instant lastUpdated,
-                   UserDto owner,
-                   Set<RewardDto> rewards) {
+                   UserDto owner) {
         this.id = id;
         this.symbol = symbol;
         this.value = value;
         this.lastUpdated = lastUpdated;
         this.owner = owner;
-        this.rewards = rewards;
     }
 
     public Integer getId() {
@@ -75,9 +71,5 @@ public class CoinDto implements Serializable {
 
     public UserDto getOwner() {
         return owner;
-    }
-
-    public Set<RewardDto> getRewards() {
-        return rewards;
     }
 }

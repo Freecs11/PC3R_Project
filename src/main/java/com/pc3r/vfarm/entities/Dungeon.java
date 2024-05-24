@@ -1,47 +1,49 @@
 package com.pc3r.vfarm.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Entity
-@Table(name = "\"DUNGEONS\"", schema = "public")
+@Table(name = "\"DUNGEONS\"")
 public class Dungeon {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ColumnDefault("nextval('\"DUNGEONS_ID_seq\"'")
     @Column(name = "\"ID\"", nullable = false)
     private Integer id;
 
     @Size(max = 255)
+    @NotNull
     @Column(name = "\"NAME\"", nullable = false)
     private String name;
 
     @Size(max = 255)
+    @NotNull
     @Column(name = "\"TYPE\"", nullable = false)
     private String type;
 
+    @NotNull
     @Column(name = "\"CREATED_AT\"", nullable = false)
     private Instant createdAt;
 
-    @Column(name = "\"LOCAL_X\"", nullable = false)
+    @NotNull
+    @Column(name = "\"LOCAL_X\"", nullable = false, precision = 38, scale = 2)
     private BigDecimal localX;
 
-    @Column(name = "\"LOCAL_Y\"", nullable = false)
+    @NotNull
+    @Column(name = "\"LOCAL_Y\"", nullable = false, precision = 38, scale = 2)
     private BigDecimal localY;
 
+    @NotNull
     @Column(name = "\"TIME\"", nullable = false)
     private Instant time;
-
-    @OneToMany(mappedBy = "dungeon")
-    private Set<DungeonTrait> dungeonTraits = new LinkedHashSet<>();
-
-    @OneToMany(mappedBy = "dungeon")
-    private Set<Reward> rewards = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -97,22 +99,6 @@ public class Dungeon {
 
     public void setTime(Instant time) {
         this.time = time;
-    }
-
-    public Set<DungeonTrait> getDungeonTraits() {
-        return dungeonTraits;
-    }
-
-    public void setDungeonTraits(Set<DungeonTrait> dungeonTraits) {
-        this.dungeonTraits = dungeonTraits;
-    }
-
-    public Set<Reward> getRewards() {
-        return rewards;
-    }
-
-    public void setRewards(Set<Reward> rewards) {
-        this.rewards = rewards;
     }
 
 }
