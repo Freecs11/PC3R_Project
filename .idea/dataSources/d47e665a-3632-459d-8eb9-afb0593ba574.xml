@@ -3,7 +3,15 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <Grants>24576||-9223372036854775808|c|G
+      <Grants>1||-9223372036854775808|c|G
+1||10|c|G
+1||10|C|G
+1||10|T|G
+4||-9223372036854775808|c|G
+4||10|c|G
+4||10|C|G
+4||10|T|G
+24576||-9223372036854775808|c|G
 24576||16384|c|G
 24576||16387|c|G
 24576||16384|C|G
@@ -11,9 +19,9 @@
 24576||-9223372036854775808|T|G
 24576||16384|T|G
 24576||16387|T|G</Grants>
-      <IntrospectionStateNumber>56327</IntrospectionStateNumber>
+      <IntrospectionStateNumber>61499</IntrospectionStateNumber>
       <ServerVersion>16.3</ServerVersion>
-      <StartupTime>1716578177</StartupTime>
+      <StartupTime>1716587158</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -808,7 +816,7 @@ false Zulu
 13187||10|C|G
 13187||-9223372036854775808|U|G
 13187||10|U|G</Grants>
-      <IntrospectionStateNumber>56327</IntrospectionStateNumber>
+      <IntrospectionStateNumber>61499</IntrospectionStateNumber>
       <ObjectId>24576</ObjectId>
       <OwnerName>pc3r_owner</OwnerName>
     </database>
@@ -4252,18 +4260,18 @@ false Zulu
     <schema id="266" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>56327</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-05-24.19:22:50</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>61499</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-05-24.22:25:56</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>523</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <sequence id="267" parent="266" name="COINS_ID_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>24622</ObjectId>
+      <ObjectId>90134</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>13324</StateNumber>
+      <StateNumber>61488</StateNumber>
       <OwnerName>pc3r_owner</OwnerName>
     </sequence>
     <sequence id="268" parent="266" name="DUNGEONS_ID_seq">
@@ -4355,8 +4363,8 @@ false Zulu
       <OwnerName>pc3r_owner</OwnerName>
     </sequence>
     <table id="279" parent="266" name="COINS">
-      <ObjectId>24623</ObjectId>
-      <StateNumber>27649</StateNumber>
+      <ObjectId>90135</ObjectId>
+      <StateNumber>61489</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>pc3r_owner</OwnerName>
     </table>
@@ -4386,7 +4394,7 @@ false Zulu
     </table>
     <table id="284" parent="266" name="PETS">
       <ObjectId>24589</ObjectId>
-      <StateNumber>13328</StateNumber>
+      <StateNumber>61480</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>pc3r_owner</OwnerName>
     </table>
@@ -4404,7 +4412,7 @@ false Zulu
     </table>
     <table id="287" parent="266" name="USERS">
       <ObjectId>24580</ObjectId>
-      <StateNumber>22528</StateNumber>
+      <StateNumber>61457</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>pc3r_owner</OwnerName>
     </table>
@@ -4413,61 +4421,60 @@ false Zulu
       <DefaultExpression>nextval(&apos;&quot;COINS_ID_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>13324</StateNumber>
-      <SequenceId>24622</SequenceId>
+      <StateNumber>61488</StateNumber>
+      <SequenceId>90134</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="289" parent="279" name="SYMBOL">
+    <column id="289" parent="279" name="LAST_UPDATED">
+      <DasType>timestamp(6)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>61488</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="290" parent="279" name="SYMBOL">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>13324</StateNumber>
+      <StateNumber>61488</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="290" parent="279" name="VALUE">
+    <column id="291" parent="279" name="VALUE">
       <DasType>numeric(38,2 digit)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>13338</StateNumber>
+      <StateNumber>61488</StateNumber>
       <TypeId>1700</TypeId>
-    </column>
-    <column id="291" parent="279" name="LAST_UPDATED">
-      <DasType>timestamp|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>13324</StateNumber>
-      <TypeId>1114</TypeId>
     </column>
     <column id="292" parent="279" name="owner_id">
       <DasType>integer|0s</DasType>
-      <Position>6</Position>
-      <StateNumber>27654</StateNumber>
+      <Position>5</Position>
+      <StateNumber>61488</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="293" parent="279" name="owner_id">
+    <foreign-key id="293" parent="279" name="fkj08w7xl0hgsyr5dee2arv6id3">
       <ColNames>owner_id</ColNames>
-      <ObjectId>49158</ObjectId>
+      <ObjectId>90141</ObjectId>
       <OnDelete>set-null</OnDelete>
-      <OnUpdate>set-null</OnUpdate>
-      <StateNumber>27668</StateNumber>
+      <StateNumber>61489</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>24580</RefTableId>
     </foreign-key>
     <index id="294" parent="279" name="COINS_pkey">
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24629</ObjectId>
+      <ObjectId>90139</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>13338</StateNumber>
+      <StateNumber>61488</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="295" parent="279" name="COINS_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24630</ObjectId>
+      <ObjectId>90140</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>13324</StateNumber>
-      <UnderlyingIndexId>24629</UnderlyingIndexId>
+      <StateNumber>61488</StateNumber>
+      <UnderlyingIndexId>90139</UnderlyingIndexId>
     </key>
     <column id="296" parent="280" name="ID">
       <DasType>integer|0s</DasType>
@@ -4805,7 +4812,14 @@ false Zulu
       <StateNumber>13320</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="342" parent="284" name="PETS_OWNER_ID_fkey">
+    <column id="342" parent="284" name="price">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>50</DefaultExpression>
+      <Position>11</Position>
+      <StateNumber>61480</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="343" parent="284" name="PETS_OWNER_ID_fkey">
       <ColNames>OWNER_ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24658</ObjectId>
@@ -4813,7 +4827,7 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>24580</RefTableId>
     </foreign-key>
-    <index id="343" parent="284" name="PETS_pkey">
+    <index id="344" parent="284" name="PETS_pkey">
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24595</ObjectId>
@@ -4822,14 +4836,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="344" parent="284" name="PETS_pkey">
+    <key id="345" parent="284" name="PETS_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24596</ObjectId>
       <Primary>1</Primary>
       <StateNumber>13320</StateNumber>
       <UnderlyingIndexId>24595</UnderlyingIndexId>
     </key>
-    <column id="345" parent="285" name="ID">
+    <column id="346" parent="285" name="ID">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;PET_TRAITS_ID_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4838,35 +4852,35 @@ false Zulu
       <SequenceId>24597</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="346" parent="285" name="NAME">
+    <column id="347" parent="285" name="NAME">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>13321</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="347" parent="285" name="DESCRIPTION">
+    <column id="348" parent="285" name="DESCRIPTION">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>13321</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="348" parent="285" name="VALUE">
+    <column id="349" parent="285" name="VALUE">
       <DasType>numeric(38,2 digit)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>13343</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="349" parent="285" name="PET_ID">
+    <column id="350" parent="285" name="PET_ID">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>13321</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="350" parent="285" name="PET_TRAITS_PET_ID_fkey">
+    <foreign-key id="351" parent="285" name="PET_TRAITS_PET_ID_fkey">
       <ColNames>PET_ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24663</ObjectId>
@@ -4874,7 +4888,7 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>24589</RefTableId>
     </foreign-key>
-    <index id="351" parent="285" name="PET_TRAITS_pkey">
+    <index id="352" parent="285" name="PET_TRAITS_pkey">
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24604</ObjectId>
@@ -4883,14 +4897,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="352" parent="285" name="PET_TRAITS_pkey">
+    <key id="353" parent="285" name="PET_TRAITS_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24605</ObjectId>
       <Primary>1</Primary>
       <StateNumber>13321</StateNumber>
       <UnderlyingIndexId>24604</UnderlyingIndexId>
     </key>
-    <column id="353" parent="286" name="ID">
+    <column id="354" parent="286" name="ID">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;REWARDS_ID_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4899,28 +4913,28 @@ false Zulu
       <SequenceId>24640</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="354" parent="286" name="DUNGEON_ID">
+    <column id="355" parent="286" name="DUNGEON_ID">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>13326</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="355" parent="286" name="COIN_ID">
+    <column id="356" parent="286" name="COIN_ID">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>13326</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="356" parent="286" name="VALUE">
+    <column id="357" parent="286" name="VALUE">
       <DasType>numeric(38,2 digit)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>13344</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <foreign-key id="357" parent="286" name="REWARDS_DUNGEON_ID_fkey">
+    <foreign-key id="358" parent="286" name="REWARDS_DUNGEON_ID_fkey">
       <ColNames>DUNGEON_ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24688</ObjectId>
@@ -4928,15 +4942,14 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>24632</RefTableId>
     </foreign-key>
-    <foreign-key id="358" parent="286" name="REWARDS_COIN_ID_fkey">
+    <foreign-key id="359" parent="286" name="fkis828k62e9cg7vlgfevd08x6b">
       <ColNames>COIN_ID</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24693</ObjectId>
-      <StateNumber>13335</StateNumber>
+      <ObjectId>90146</ObjectId>
+      <StateNumber>61490</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24623</RefTableId>
+      <RefTableId>90135</RefTableId>
     </foreign-key>
-    <index id="359" parent="286" name="REWARDS_pkey">
+    <index id="360" parent="286" name="REWARDS_pkey">
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24647</ObjectId>
@@ -4945,14 +4958,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="360" parent="286" name="REWARDS_pkey">
+    <key id="361" parent="286" name="REWARDS_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24648</ObjectId>
       <Primary>1</Primary>
       <StateNumber>13326</StateNumber>
       <UnderlyingIndexId>24647</UnderlyingIndexId>
     </key>
-    <column id="361" parent="287" name="ID">
+    <column id="362" parent="287" name="ID">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;USERS_ID_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4961,49 +4974,56 @@ false Zulu
       <SequenceId>24579</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="362" parent="287" name="USERNAME">
+    <column id="363" parent="287" name="USERNAME">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>13319</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="363" parent="287" name="PASSWORD">
+    <column id="364" parent="287" name="PASSWORD">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>13319</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="364" parent="287" name="EMAIL">
+    <column id="365" parent="287" name="EMAIL">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>13319</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="365" parent="287" name="CREATED_AT">
+    <column id="366" parent="287" name="CREATED_AT">
       <DasType>timestamp|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StateNumber>13319</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="366" parent="287" name="POSITION">
+    <column id="367" parent="287" name="POSITION">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StateNumber>13319</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="367" parent="287" name="ROLE">
+    <column id="368" parent="287" name="ROLE">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StateNumber>13319</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="368" parent="287" name="USERS_pkey">
+    <column id="369" parent="287" name="coin">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>9</Position>
+      <StateNumber>61457</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="370" parent="287" name="USERS_pkey">
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24586</ObjectId>
@@ -5012,7 +5032,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="369" parent="287" name="USERS_pkey">
+    <key id="371" parent="287" name="USERS_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24587</ObjectId>
       <Primary>1</Primary>

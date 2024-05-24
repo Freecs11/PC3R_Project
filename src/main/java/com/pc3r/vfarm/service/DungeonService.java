@@ -48,7 +48,7 @@ public class DungeonService extends GenericService<Dungeon> {
 
     public ResponseDTO resetDungeon(String id, int userId) {
         Dungeon dungeon = ((DungeonDAO) dao).getDungeonById(id);
-        if (!"in fight".equals(dungeon.getStatus()) || userId != dungeon.getUserFightingId()) {
+        if (!"in fight".equals(dungeon.getStatus()) || dungeon.getUserFightingId() == null || dungeon.getUserFightingId() != userId) {
             return new ResponseDTO("error", "Not authorized to reset the dungeon");
         }
         dungeon.setStatus("idle");
@@ -61,14 +61,14 @@ public class DungeonService extends GenericService<Dungeon> {
 
     public ResponseDTO selectItems(String id, String itemsJson, int userId) {
         Dungeon dungeon = ((DungeonDAO) dao).getDungeonById(id);
-        if (userId!= dungeon.getUserFightingId()) {
+        if (dungeon.getUserFightingId() == null || dungeon.getUserFightingId() != userId) {
             return new ResponseDTO("error", "Not authorized to select items for this dungeon");
         }
         List<Integer> itemIds = parseItemIdsFromJson(itemsJson);
         String itemIdsSerializedtoJSON = new Gson().toJson(itemIds);
         dungeon.setSelectedItems(itemIdsSerializedtoJSON);
         ((DungeonDAO) dao).updateDungeon(dungeon);
-        return new ResponseDTO("success", "Items selected for dungeon id " + id);
+        return new ResponseDTO("success", "Items selected for dungeon id " + id + " are " + itemIdsSerializedtoJSON);
     }
 
     public ResponseDTO engageCombat(String id, String combatDetailsJson) {
@@ -78,7 +78,7 @@ public class DungeonService extends GenericService<Dungeon> {
         int userId = jsonObject.get("userId").getAsInt();
         JsonArray jsonArray = jsonObject.getAsJsonArray("selectedPets");
 
-        if (userId!=dungeon.getUserFightingId()) {
+        if (dungeon.getUserFightingId() == null || dungeon.getUserFightingId() != userId) {
             return new ResponseDTO("error", "Not authorized to engage combat for this dungeon");
         }
 
@@ -89,13 +89,21 @@ public class DungeonService extends GenericService<Dungeon> {
         for (int i = 0; i < jsonArray.size(); i++) {
             int petId = jsonArray.get(i).getAsInt();
             Pet pet = petDAO.getPetById(petId);
-            pets.add(pet);
+            if (pet != null) { // Ensure no null values are added
+                pets.add(pet);
+            }
         }
 
         List<DungeonTrait> dungeonTraits = dungeonTraitDAO.getDungeonTraitsByDungeonId(id);
+        int totalPetStrength = pets.stream()
+                .filter(pet -> pet != null) // Ensure no null values are processed
+                .mapToInt(Pet::getHealth)
+                .sum();
 
-        int totalPetStrength = pets.stream().mapToInt(Pet::getHealth).sum();
-        int totalDungeonStrength = dungeonTraits.stream().mapToInt(dungeonTrait -> dungeonTrait.getValue().intValue()).sum();
+        int totalDungeonStrength = dungeonTraits.stream()
+                .filter(dungeonTrait -> dungeonTrait != null) // Ensure no null values are processed
+                .mapToInt(dungeonTrait -> dungeonTrait.getValue().intValue())
+                .sum();
 
         String combatResult;
         if (totalPetStrength > totalDungeonStrength) {
@@ -111,6 +119,7 @@ public class DungeonService extends GenericService<Dungeon> {
 
         return new ResponseDTO("success", combatResult);
     }
+
 
     private List<Integer> parseItemIdsFromJson(String itemsJson) {
         List<Integer> itemIds = new ArrayList<>();

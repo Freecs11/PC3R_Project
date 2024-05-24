@@ -36,6 +36,7 @@ public class DungeonServlet extends HttpServlet {
         if (pathParts.length == 2) {
             handleGetDungeon(response, id);
         } else if (pathParts.length == 3 && "fight".equals(pathParts[2])) {
+            // spi/v1/DungeonService/{id}/fight?userId=1
             int userId = Integer.parseInt(request.getParameter("userId"));
             handleFight(response, id, userId);
         } else if (pathParts.length == 3 && "reset".equals(pathParts[2])) {
