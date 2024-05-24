@@ -12,17 +12,22 @@ import java.util.Objects;
  * DTO for {@link com.pc3r.vfarm.entities.Dungeon}
  */
 public class DungeonDto implements Serializable {
-    private final Integer id;
-    @Size(max = 255)
-    private final String name;
-    @Size(max = 255)
-    private final String type;
-    private final Instant createdAt;
-    private final BigDecimal localX;
-    private final BigDecimal localY;
-    private final Instant time;
+    private  Integer id;
 
-    public DungeonDto(Integer id, String name, String type, Instant createdAt, BigDecimal localX, BigDecimal localY, Instant time) {
+    @Size(max = 255)
+    private  String name;
+    @Size(max = 255)
+    private  String type;
+    private  Instant createdAt;
+    private  BigDecimal localX;
+    private  BigDecimal localY;
+    private  Instant time;
+    private String status;
+    private String selectedItems;
+    private String combatDetails;
+
+
+    public DungeonDto(Integer id, String name, String type, Instant createdAt, BigDecimal localX, BigDecimal localY, Instant time , String status , String selectedItems , String combatDetails) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -30,6 +35,57 @@ public class DungeonDto implements Serializable {
         this.localX = localX;
         this.localY = localY;
         this.time = time;
+        this.status = status;
+        this.selectedItems = selectedItems;
+        this.combatDetails = combatDetails;
+    }
+
+    public DungeonDto(){
+
+    }
+
+    public String getSelectedItems() {
+        return selectedItems;
+    }
+
+    public void setSelectedItems(String selectedItems) {
+        this.selectedItems = selectedItems;
+    }
+
+    public String getCombatDetails() {
+        return combatDetails;
+    }
+
+    public void setCombatDetails(String combatDetails) {
+        this.combatDetails = combatDetails;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setLocalY(BigDecimal localY) {
+        this.localY = localY;
+    }
+
+    public void setTime(Instant time) {
+        this.time = time;
+    }
+
+    public void setLocalX(BigDecimal localX) {
+        this.localX = localX;
     }
 
     public Integer getId() {

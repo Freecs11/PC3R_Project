@@ -12,4 +12,7 @@ public class DungeonDAO extends HibernateDAO<Dungeon>{
         return (Dungeon) getSession().createQuery(query).setParameter("id", id).uniqueResult();
     }
 
+    public void updateDungeon(Dungeon dungeon) {
+        getSession().update(dungeon);
+    }
 }

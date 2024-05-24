@@ -9,21 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf0aa55c-3c3d-42d4-852d-5d86b02f36c4" name="Changes" comment="merge">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/DTO/ResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/dungeon/DungeonServlet.java" afterDir="false" />
+    <list default="true" id="cf0aa55c-3c3d-42d4-852d-5d86b02f36c4" name="Changes" comment="added signup + dungeonServlet start">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d47e665a-3632-459d-8eb9-afb0593ba574.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d47e665a-3632-459d-8eb9-afb0593ba574.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d47e665a-3632-459d-8eb9-afb0593ba574/storage_v2/_src_/database/pc3r.0mM0AA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d47e665a-3632-459d-8eb9-afb0593ba574/storage_v2/_src_/database/pc3r.0mM0AA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/DTO/DungeonDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/DTO/DungeonDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/dungeon/DungeonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/controller/dungeon/DungeonServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/DungeonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/DungeonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/DungeonTraitDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/DungeonTraitDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/PetDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/dao/PetDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Dungeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/entities/Dungeon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/service/DungeonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pc3r/vfarm/service/DungeonService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/DTO/DungeonDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/DTO/DungeonDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/entities/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/entities/Dungeon.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/service/DungeonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VFarm-1.0-SNAPSHOT/WEB-INF/classes/com/pc3r/vfarm/service/DungeonService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/DungeonDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/DTO/DungeonDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/DungeonDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/DungeonDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/DungeonTraitDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/DungeonTraitDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/PetDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/dao/PetDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/entities/Dungeon.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/DungeonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pc3r/vfarm/service/DungeonService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -347,6 +352,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge" />
+    <MESSAGE value="added signup + dungeonServlet start" />
+    <option name="LAST_COMMIT_MESSAGE" value="added signup + dungeonServlet start" />
   </component>
 </project>
