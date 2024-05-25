@@ -21,6 +21,8 @@ public class PetDto implements Serializable {
     private final Timestamp createdAt;
     private final Integer health;
     private final UserDto owner;
+    @NotNull
+    private Integer price;
 
     public PetDto(Integer id, String name, String type, Timestamp purchasedAt, Timestamp createdAt, Integer health,
                   UserDto owner) {
@@ -70,6 +72,14 @@ public class PetDto implements Serializable {
                 Objects.equals(this.health, entity.health);
     }
 
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(id, name, type, purchasedAt, createdAt, health);
@@ -83,7 +93,8 @@ public class PetDto implements Serializable {
                 "type = " + type + ", " +
                 "purchasedAt = " + purchasedAt + ", " +
                 "createdAt = " + createdAt + ", " +
-                "health = " + health + ")";
+                "health = " + health + ", " +
+                "price = " + price + ")";
     }
 
     public UserDto getOwner() {

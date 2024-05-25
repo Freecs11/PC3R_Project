@@ -34,9 +34,8 @@ public class Item {
     @Column(name = "\"PURCHASED_AT\"")
     private Timestamp purchasedAt;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "\"OWNER_ID\"", nullable = false)
+    @JoinColumn(name = "\"ownerid\"", nullable = false)
     private User owner;
 
     @NotNull

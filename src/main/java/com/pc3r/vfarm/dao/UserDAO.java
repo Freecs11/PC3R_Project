@@ -1,7 +1,6 @@
 package com.pc3r.vfarm.dao;
 
 import com.pc3r.vfarm.entities.User;
-import com.pc3r.vfarm.service.CoinService;
 import org.mindrot.jbcrypt.BCrypt;
 
 
@@ -15,8 +14,7 @@ public class UserDAO extends HibernateDAO<User>{
 
 
     public User getUserByUsername(String username) {
-        String query = "from User where username = :username";
-        return (User) getSession().createQuery(query).setParameter("username", username).uniqueResult();
+        return (User) getSession().createQuery("from User where username = :username").setParameter("username", username).uniqueResult();
     }
 
     public User getUserByEmail(String email) {
@@ -25,24 +23,33 @@ public class UserDAO extends HibernateDAO<User>{
     }
 
 
-    private String hashPassword(String plainTextPassword){
+    public String hashPassword(String plainTextPassword){
         return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
     }
 
+    public boolean checkPassword(String plainTextPassword, String hashedPassword) {
+        return BCrypt.checkpw(plainTextPassword, hashedPassword);
+    }
 
     public User createUser(String username, String password, String email, String role) {
         User user = new User();
         user.setUsername(username);
-        user.setPassword(hashPassword(password));  // Ensuring password is hashed before saving
+        user.setPassword(hashPassword(password));  // hash le password avant de le stocker
         user.setEmail(email);
         user.setRole(role);
         user.setCreatedAt(Timestamp.from(Instant.now()));
         user.setPosition("user");
-        save(user);  // This method should be responsible for persisting the user entity
+        user.setCoin(1000); // Initial coin balance
+        save(user); // saves the user to the database
         return user;
     }
 
 
+    public User getUserById(int userId) {
+        return (User) getSession().createQuery("from User where id = :userId").setParameter("userId", userId).uniqueResult();
+    }
 
-
+    public void updateUser(User user) {
+        update(user);
+    }
 }

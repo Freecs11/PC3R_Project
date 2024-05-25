@@ -2,6 +2,7 @@ package com.pc3r.vfarm.dao;
 
 import com.pc3r.vfarm.entities.DungeonTrait;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class DungeonTraitDAO extends HibernateDAO<DungeonTrait>{
@@ -9,9 +10,17 @@ public class DungeonTraitDAO extends HibernateDAO<DungeonTrait>{
         super(DungeonTrait.class);
     }
 
-    public List<DungeonTrait> getDungeonTraitsByDungeonId(String id) {
-        return getSession().createQuery("from DungeonTrait where dungeon.id = :id")
-                .setParameter("id", id)
-                .list();
+    public List<DungeonTrait> getDungeonTraitsByDungeonId(Integer id) {
+        String query = "from DungeonTrait where dungeon.id = :id";
+        return getSession().createQuery(query).setParameter("id", id).list();
+    }
+
+    public void createDungeonTrait(String name, String description, Float value, Integer dungeonId) {
+        DungeonTrait dungeonTrait = new DungeonTrait();
+        dungeonTrait.setName(name);
+        dungeonTrait.setDescription(description);
+        dungeonTrait.setValue(BigDecimal.valueOf(value));
+        dungeonTrait.setDungeon(new DungeonDAO().getDungeonById(String.valueOf(dungeonId)));
+        save(dungeonTrait);
     }
 }

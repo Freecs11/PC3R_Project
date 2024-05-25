@@ -37,6 +37,9 @@ public class User {
     @Column(name = "\"ROLE\"", nullable = false)
     private String role;
 
+    @Column(name = "\"coin\"", nullable = false)
+    private Integer coin;
+
     public Integer getId() {
         return id;
     }
@@ -93,4 +96,11 @@ public class User {
         this.role = role;
     }
 
+    public Integer getCoin() {
+        return coin;
+    }
+
+    public void setCoin(Integer coin) {
+        this.coin = coin;
+    }
 }

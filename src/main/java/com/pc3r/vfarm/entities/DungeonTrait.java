@@ -31,7 +31,7 @@ public class DungeonTrait {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "\"DUNGEON_ID\"", nullable = false)
+    @JoinColumn(name = "\"dungeonid\"", nullable = false)
     private Dungeon dungeon;
 
     public Integer getId() {

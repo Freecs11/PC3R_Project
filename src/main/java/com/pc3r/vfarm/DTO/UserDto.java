@@ -24,8 +24,10 @@ public class UserDto implements Serializable {
     private  String position;
     @Size(max = 255)
     private  String role;
+    private Integer coin;
 
-    public UserDto(Integer id, String username, String password, String email, Timestamp createdAt, String position, String role) {
+
+    public UserDto(Integer id, String username, String password, String email, Timestamp createdAt, String position, String role , Integer coin) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -33,11 +35,21 @@ public class UserDto implements Serializable {
         this.createdAt = createdAt;
         this.position = position;
         this.role = role;
+        this.coin = coin;
     }
 
     public UserDto() {
 
     }
+
+    public Integer getCoin() {
+        return coin;
+    }
+
+    public void setCoin(Integer coin) {
+        this.coin = coin;
+    }
+
 
     public Integer getId() {
         return id;

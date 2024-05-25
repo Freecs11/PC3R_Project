@@ -12,7 +12,7 @@ import java.time.Instant;
 @Table(name = "\"PETS\"")
 public class Pet {
     @Id
-    @ColumnDefault("nextval('\"PETS_ID_seq\"'")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pet_seq")
     @Column(name = "\"ID\"", nullable = false)
     private Integer id;
 
@@ -34,14 +34,17 @@ public class Pet {
     @Column(name = "\"CREATED_AT\"", nullable = false)
     private Timestamp createdAt;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "\"OWNER_ID\"", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "\"owner_Id\"")
     private User owner;
 
     @NotNull
     @Column(name = "\"HEALTH\"", nullable = false)
     private Integer health;
+
+    @NotNull
+    @Column(name = "\"price\"", nullable = false)
+    private Integer price;
 
     public Integer getId() {
         return id;
@@ -99,4 +102,25 @@ public class Pet {
         this.health = health;
     }
 
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", purchasedAt=" + purchasedAt +
+                ", createdAt=" + createdAt +
+                ", owner=" + owner.getId() +
+                ", health=" + health +
+                ", price=" + price +
+                '}';
+    }
 }

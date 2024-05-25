@@ -22,4 +22,12 @@ public class UserService extends GenericService<User>{
     }
 
 
+    public User getUserById(int userId) {
+        return ((UserDAO) dao).getUserById(userId);
+    }
+
+
+    public void updateUser(User user) {
+        ((UserDAO) dao).updateUser(user);
+    }
 }
