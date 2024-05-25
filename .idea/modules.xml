@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/VFarm.iml" filepath="$PROJECT_DIR$/VFarm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VirtuelFarm.iml" filepath="$PROJECT_DIR$/VirtuelFarm.iml" />
     </modules>
   </component>
 </project>

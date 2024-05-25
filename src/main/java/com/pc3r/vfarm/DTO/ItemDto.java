@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -17,13 +18,13 @@ public class ItemDto implements Serializable {
     private final String name;
     @Size(max = 255)
     private final String type;
-    private final Instant createdAt;
-    private final Instant purchasedAt;
+    private final Timestamp createdAt;
+    private final Timestamp purchasedAt;
     private final Integer durability;
     private final BigDecimal value;
     private final UserDto owner;
 
-    public ItemDto(Integer id, String name, String type, Instant createdAt, Instant purchasedAt, Integer durability, BigDecimal value,
+    public ItemDto(Integer id, String name, String type, Timestamp createdAt, Timestamp purchasedAt, Integer durability, BigDecimal value,
                    UserDto owner) {
         this.id = id;
         this.name = name;
@@ -47,11 +48,11 @@ public class ItemDto implements Serializable {
         return type;
     }
 
-    public Instant getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public Instant getPurchasedAt() {
+    public Timestamp getPurchasedAt() {
         return purchasedAt;
     }
 

@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.time.Instant;
 
 @WebServlet(name = "userServlet", value = "/users")
@@ -37,7 +38,7 @@ public class UserServlet extends HttpServlet {
         userDTO.setEmail(request.getParameter("email"));
         userDTO.setRole(request.getParameter("role"));
         userDTO.setPosition(request.getParameter("position"));
-        userDTO.setCreatedAt(Instant.now());
+        userDTO.setCreatedAt(Timestamp.from(Instant.now()));
         return userDTO;
     }
 
@@ -48,7 +49,7 @@ public class UserServlet extends HttpServlet {
         user.setEmail(userDTO.getEmail());
         user.setRole(userDTO.getRole());
         user.setPosition(userDTO.getPosition());
-        user.setCreatedAt(Instant.now());
+        user.setCreatedAt(userDTO.getCreatedAt());
         return user;
     }
 

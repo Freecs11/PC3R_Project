@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.Instant;
 
 @Entity
@@ -31,11 +32,10 @@ public class Item {
     private Instant createdAt;
 
     @Column(name = "\"PURCHASED_AT\"")
-    private Instant purchasedAt;
+    private Timestamp purchasedAt;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "\"OWNER_ID\"", nullable = false)
+    @JoinColumn(name = "\"ownerid\"", nullable = false)
     private User owner;
 
     @NotNull
@@ -77,11 +77,11 @@ public class Item {
         this.createdAt = createdAt;
     }
 
-    public Instant getPurchasedAt() {
+    public Timestamp getPurchasedAt() {
         return purchasedAt;
     }
 
-    public void setPurchasedAt(Instant purchasedAt) {
+    public void setPurchasedAt(Timestamp purchasedAt) {
         this.purchasedAt = purchasedAt;
     }
 

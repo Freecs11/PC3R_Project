@@ -7,4 +7,8 @@ public class ItemService extends GenericService<Item> {
     public ItemService() {
         super(new ItemDAO());
     }
+
+    public Item getItemById(Integer itemId) {
+        return ((ItemDAO) dao).getItemById(itemId);
+    }
 }

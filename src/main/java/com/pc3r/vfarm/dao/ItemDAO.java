@@ -6,4 +6,8 @@ public class ItemDAO extends HibernateDAO<Item>{
     public ItemDAO() {
         super(Item.class);
     }
+
+    public Item getItemById(Integer itemId) {
+        return getSession().get(Item.class, itemId);
+    }
 }

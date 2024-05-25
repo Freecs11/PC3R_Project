@@ -1,8 +1,10 @@
 package com.pc3r.vfarm.controller.auth;
 
 
+import com.pc3r.vfarm.DTO.ResponseDTO;
 import com.pc3r.vfarm.dao.UserDAO;
 import com.pc3r.vfarm.entities.User;
+import com.pc3r.vfarm.service.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,8 +19,8 @@ import java.io.PrintWriter;
 public class LogInServlet extends HttpServlet {
     private final UserDAO userDAO = new UserDAO();
 
-    public void init() {
 
+    public void init() {
     }
 
     public void destroy() {
@@ -27,7 +29,6 @@ public class LogInServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-
         // Set the content type of response to "text/html"
         response.setContentType("application/json");
 
@@ -35,16 +36,15 @@ public class LogInServlet extends HttpServlet {
         // Get User entered details from the request using request parameter.
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String id = request.getParameter("id");
 
-        User user = userDAO.findById(Integer.parseInt(id));
+        User user = userDAO.getUserByUsername(username);
         System.out.println(user.getPassword());
         System.out.println(user.getUsername());
 
         // Check if the user exists in the database.
         if (user != null) {
             // Check if the username and password are correct.
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+            if (user.getUsername().equals(username) && userDAO.checkPassword(password, user.getPassword())) {
                 //get the old session and invalidate
                 HttpSession oldSession = request.getSession(false);
                 if (oldSession != null) {
@@ -53,16 +53,13 @@ public class LogInServlet extends HttpServlet {
                 //generate a new session
                 HttpSession newSession = request.getSession(true);
 
-                //setting session to expiry in 5 mins
-                newSession.setMaxInactiveInterval(5 * 60);
+                //setting session to expiry in 1 day (24 hours)
+                newSession.setMaxInactiveInterval(60 * 60 * 24);
 
             } else {
-                // If the username and password are incorrect, display an error message.
-                out.println("{\"status\": \"error\", \"message\": \"Invalid username or password\"}");
+                ResponseDTO responseDTO = new ResponseDTO("error", "Invalid username or password");
+                out.print(responseDTO);
             }
-        } else {
-            // If the user does not exist in the database, display an error message.
-            out.println("{\"status\": \"error\", \"message\": \"User does not exist\"}");
         }
         // Close the print writer object.
         out.close();

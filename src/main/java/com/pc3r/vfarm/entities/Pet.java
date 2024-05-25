@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.ColumnDefault;
 
+import java.sql.Timestamp;
 import java.time.Instant;
 
 @Entity
@@ -17,7 +18,7 @@ public class Pet {
 
     @Size(max = 255)
     @NotNull
-    @Column(name = "\"NAME\"")
+    @Column(name = "\"NAME\"", nullable = false)
     private String name;
 
     @Size(max = 255)
@@ -27,18 +28,23 @@ public class Pet {
 
     @NotNull
     @Column(name = "\"PURCHASED_AT\"", nullable = false)
-    private Instant purchasedAt;
+    private Timestamp purchasedAt;
 
-    @Column(name = "\"CREATED_AT\"")
-    private Instant createdAt;
+    @NotNull
+    @Column(name = "\"CREATED_AT\"", nullable = false)
+    private Timestamp createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "\"OWNER_ID\"")
+    @JoinColumn(name = "\"owner_Id\"")
     private User owner;
 
     @NotNull
     @Column(name = "\"HEALTH\"", nullable = false)
     private Integer health;
+
+    @NotNull
+    @Column(name = "\"price\"", nullable = false)
+    private Integer price;
 
     public Integer getId() {
         return id;
@@ -64,19 +70,19 @@ public class Pet {
         this.type = type;
     }
 
-    public Instant getPurchasedAt() {
+    public Timestamp getPurchasedAt() {
         return purchasedAt;
     }
 
-    public void setPurchasedAt(Instant purchasedAt) {
+    public void setPurchasedAt(Timestamp purchasedAt) {
         this.purchasedAt = purchasedAt;
     }
 
-    public Instant getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Instant createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -96,6 +102,14 @@ public class Pet {
         this.health = health;
     }
 
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "Pet{" +
@@ -104,8 +118,9 @@ public class Pet {
                 ", type='" + type + '\'' +
                 ", purchasedAt=" + purchasedAt +
                 ", createdAt=" + createdAt +
+                ", owner=" + owner.getId() +
                 ", health=" + health +
+                ", price=" + price +
                 '}';
     }
-
 }

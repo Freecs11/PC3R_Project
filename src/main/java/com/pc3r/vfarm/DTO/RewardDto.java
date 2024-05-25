@@ -13,15 +13,13 @@ public class RewardDto implements Serializable {
     private final Integer id;
     private final BigDecimal value;
     private final DungeonDto dungeon;
-    private final CoinDto coin;
 
     public RewardDto(Integer id, BigDecimal value,
-                     DungeonDto dungeon,
-                     CoinDto coin) {
+                     DungeonDto dungeon
+                     ) {
         this.id = id;
         this.value = value;
         this.dungeon = dungeon;
-        this.coin = coin;
     }
 
     public Integer getId() {
@@ -57,7 +55,4 @@ public class RewardDto implements Serializable {
         return dungeon;
     }
 
-    public CoinDto getCoin() {
-        return coin;
-    }
 }

@@ -1,6 +1,8 @@
 package com.pc3r.vfarm.dao;
 
 import com.pc3r.vfarm.entities.Pet;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -9,26 +11,26 @@ public class PetDAO extends HibernateDAO<Pet>{
         super(Pet.class);
     }
 
-    public Pet getPetById(int id) {
-        return (Pet) getSession().createQuery("from Pet where id = :id")
-                .setParameter("id", id)
-                .uniqueResult();
+
+    public Pet getPetById(int petId) {
+        return getSession().get(Pet.class, petId);
     }
 
-    //getPetsByOwnerId
-    public List getPetsByOwnerId(int ownerId) {
-        return getSession().createQuery("from Pet where owner.id = :ownerId")
-                .setParameter("ownerId", ownerId)
-                .list();
-    }
-
-//    save
-    public void savePet(Pet pet) {
-        save(pet);
-    }
-
-    // delete
     public void deletePet(Pet pet) {
-        delete(pet);
+        getSession().delete(pet);
+    }
+
+    public List<Pet> getPetsByOwnerId(int ownerId) {
+        return getSession().createQuery("from Pet where owner.id = :ownerId", Pet.class)
+                .setParameter("ownerId", ownerId)
+                .getResultList();
+    }
+
+    public void savePet(Pet pet) {
+        getSession().save(pet);
+    }
+
+    public List<Pet> getAllPets() {
+        return getSession().createQuery("from Pet", Pet.class).getResultList();
     }
 }

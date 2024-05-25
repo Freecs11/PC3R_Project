@@ -1,49 +1,63 @@
 package com.pc3r.vfarm.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Table(name = "\"DUNGEONS\"")
 public class Dungeon {
     @Id
-    @ColumnDefault("nextval('\"DUNGEONS_ID_seq\"'")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dungeon_seq")
     @Column(name = "\"ID\"", nullable = false)
     private Integer id;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"NAME\"", nullable = false)
     private String name;
 
     @Size(max = 255)
-    @NotNull
     @Column(name = "\"TYPE\"", nullable = false)
     private String type;
 
-    @NotNull
     @Column(name = "\"CREATED_AT\"", nullable = false)
-    private Instant createdAt;
+    private Timestamp createdAt;
 
-    @NotNull
     @Column(name = "\"LOCAL_X\"", nullable = false, precision = 38, scale = 2)
     private BigDecimal localX;
 
-    @NotNull
     @Column(name = "\"LOCAL_Y\"", nullable = false, precision = 38, scale = 2)
     private BigDecimal localY;
 
-    @NotNull
     @Column(name = "\"TIME\"", nullable = false)
-    private Instant time;
+    private Timestamp time;
+
+    @Column(name = "\"status\"")
+    private String status;
+
+    @Column(name = "\"selected_items\"")
+    private String selectedItems;
+
+    @Column(name = "\"combat_details\"")
+    private String combatDetails;
+
+    @Column(name = "\"userid\"")
+    private Integer userFightingId;
+
+
+    public Integer getUserFightingId() {
+        return userFightingId;
+    }
+
+    public void setUserFightingId(Integer userFightingId) {
+        this.userFightingId = userFightingId;
+    }
 
     public Integer getId() {
         return id;
@@ -61,6 +75,14 @@ public class Dungeon {
         this.name = name;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getType() {
         return type;
     }
@@ -69,11 +91,11 @@ public class Dungeon {
         this.type = type;
     }
 
-    public Instant getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Instant createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -93,12 +115,29 @@ public class Dungeon {
         this.localY = localY;
     }
 
-    public Instant getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Instant time) {
+    public void setTime(Timestamp time) {
         this.time = time;
+    }
+
+
+    public String getSelectedItems() {
+        return selectedItems;
+    }
+
+    public void setSelectedItems(String selectedItems) {
+        this.selectedItems = selectedItems;
+    }
+
+    public String getCombatDetails() {
+        return combatDetails;
+    }
+
+    public void setCombatDetails(String combatDetails) {
+        this.combatDetails = combatDetails;
     }
 
 }

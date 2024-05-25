@@ -16,13 +16,9 @@ public class Reward {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "\"DUNGEON_ID\"", nullable = false)
+    @JoinColumn(name = "\"dungeonid\"", nullable = false)
     private Dungeon dungeon;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "\"COIN_ID\"", nullable = false)
-    private Coin coin;
 
     @NotNull
     @Column(name = "\"VALUE\"", nullable = false, precision = 38, scale = 2)
@@ -44,20 +40,15 @@ public class Reward {
         this.dungeon = dungeon;
     }
 
-    public Coin getCoin() {
-        return coin;
-    }
 
-    public void setCoin(Coin coin) {
-        this.coin = coin;
-    }
 
-    public BigDecimal getValue() {
+    public BigDecimal getAmount() {
         return value;
     }
 
-    public void setValue(BigDecimal value) {
+    public void setAmount(BigDecimal value) {
         this.value = value;
     }
+
 
 }

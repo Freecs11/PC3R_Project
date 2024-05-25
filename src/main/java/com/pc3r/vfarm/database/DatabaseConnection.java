@@ -10,7 +10,6 @@ public class DatabaseConnection {
     {
         try {
             factory = new Configuration()
-                    .addAnnotatedClass(com.pc3r.vfarm.entities.Coin.class)
                     .addAnnotatedClass(com.pc3r.vfarm.entities.Dungeon.class)
                     .addAnnotatedClass(com.pc3r.vfarm.entities.DungeonTrait.class)
                     .addAnnotatedClass(com.pc3r.vfarm.entities.Item.class)
