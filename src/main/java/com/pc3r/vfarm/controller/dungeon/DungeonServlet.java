@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "dungeonServlet", urlPatterns = {"/spi/v1/DungeonService/*"})
+@WebServlet(name = "dungeonServlet", urlPatterns = {"/api/v1/DungeonService/*"})
 public class DungeonServlet extends HttpServlet {
     private DungeonService dungeonService;
 

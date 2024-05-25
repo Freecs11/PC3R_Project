@@ -1,16 +1,15 @@
 package com.pc3r.vfarm.controller.auth;
 
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.pc3r.vfarm.DTO.ResponseDTO;
 import com.pc3r.vfarm.dao.UserDAO;
 import com.pc3r.vfarm.entities.User;
 import com.pc3r.vfarm.service.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,28 +37,35 @@ public class LogInServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         User user = userDAO.getUserByUsername(username);
-        System.out.println(user.getPassword());
-        System.out.println(user.getUsername());
 
         // Check if the user exists in the database.
         if (user != null) {
             // Check if the username and password are correct.
             if (user.getUsername().equals(username) && userDAO.checkPassword(password, user.getPassword())) {
-                //get the old session and invalidate
+                // Get the old session and invalidate
                 HttpSession oldSession = request.getSession(false);
                 if (oldSession != null) {
                     oldSession.invalidate();
                 }
-                //generate a new session
+                // Generate a new session
                 HttpSession newSession = request.getSession(true);
 
-                //setting session to expiry in 1 day (24 hours)
+                // Set session to expire in 1 day (24 hours)
                 newSession.setMaxInactiveInterval(60 * 60 * 24);
+                // Prepare JSON response
+                JsonObject userJson = new JsonObject();
+                userJson.addProperty("username", user.getUsername());
+                userJson.addProperty("userId", user.getId());
+                userJson.addProperty("coin", user.getCoin());
+                userJson.addProperty("JSESSIONID", newSession.getId());
+                Gson gson = new Gson();
 
-            } else {
-                ResponseDTO responseDTO = new ResponseDTO("error", "Invalid username or password");
-                out.print(responseDTO);
+                ResponseDTO responseDTO = new ResponseDTO("success", gson.toJson(userJson));
+                out.println(responseDTO.toJson());
             }
+        }else {
+            ResponseDTO responseDTO = new ResponseDTO("error", "Invalid username or password");
+            out.print(responseDTO.toJson());
         }
         // Close the print writer object.
         out.close();

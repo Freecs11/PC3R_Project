@@ -1,5 +1,6 @@
 package com.pc3r.vfarm.dao;
 
+import com.pc3r.vfarm.entities.Dungeon;
 import com.pc3r.vfarm.entities.DungeonTrait;
 
 import java.math.BigDecimal;
@@ -15,12 +16,12 @@ public class DungeonTraitDAO extends HibernateDAO<DungeonTrait>{
         return getSession().createQuery(query).setParameter("id", id).list();
     }
 
-    public void createDungeonTrait(String name, String description, Float value, Integer dungeonId) {
+    public void createDungeonTrait(String name, String description, Float value, Dungeon dungeon) {
         DungeonTrait dungeonTrait = new DungeonTrait();
         dungeonTrait.setName(name);
         dungeonTrait.setDescription(description);
         dungeonTrait.setValue(BigDecimal.valueOf(value));
-        dungeonTrait.setDungeon(new DungeonDAO().getDungeonById(String.valueOf(dungeonId)));
+        dungeonTrait.setDungeon(dungeon);
         save(dungeonTrait);
     }
 }

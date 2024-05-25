@@ -13,8 +13,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Objects;
 
-@WebServlet(name = "marketServlet", value = "/apii/v1/market")
+@WebServlet(name = "marketServlet", value = "/api/v1/market")
 public class MarketServlet extends HttpServlet {
 
     private PetDAO petDAO;
@@ -53,7 +54,7 @@ public class MarketServlet extends HttpServlet {
             if (buyerIdStr != null) {
                 handleBuyPet(request, response, pet, Long.parseLong(buyerIdStr));
             } else if (sellerIdStr != null) {
-                handleSellPet(request, response, pet, Long.parseLong(sellerIdStr));
+                handleSellPet(request, response, pet, sellerIdStr);
             } else {
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
                 out.write(new ResponseDTO("error", "Invalid request parameters").toJson());
@@ -88,25 +89,23 @@ public class MarketServlet extends HttpServlet {
         }
 
         buyer.setCoin(buyer.getCoin() - pet.getPrice());
-        pet.setOwner(buyer);
-
         userDAO.update(buyer);
+        pet.setOwner(buyer);
         petDAO.update(pet);
 
         out.write(new ResponseDTO("success", "Pet bought successfully").toJson());
     }
 
-    private void handleSellPet(HttpServletRequest request, HttpServletResponse response, Pet pet, Long sellerId) throws IOException {
+    private void handleSellPet(HttpServletRequest request, HttpServletResponse response, Pet pet, String sellerId) throws IOException {
         PrintWriter out = response.getWriter();
-
-        User seller = userDAO.findById(sellerId);
+        Integer sellerIDInt = (Integer.parseInt(sellerId));
+        User seller = userDAO.findById(sellerIDInt);
         if (seller == null) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             out.write(new ResponseDTO("error", "Seller not found").toJson());
             return;
         }
-
-        if (!pet.getOwner().getId().equals(sellerId)) {
+        if (!Objects.equals(pet.getOwner().getId(), sellerIDInt)) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             out.write(new ResponseDTO("error", "You do not own this pet").toJson());
             return;

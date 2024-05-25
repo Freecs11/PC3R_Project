@@ -59,14 +59,17 @@ public class DungeonService extends GenericService<Dungeon> {
             float wind = weatherData.get(1);
             float humidity = weatherData.get(2);
             float pressure = weatherData.get(3);
-            float posXRandomized = posX + (float) (Math.random() * 0.1);
-            float posYRandomized = posY + (float) (Math.random() * 0.1);
-            Dungeon dungeon = ((DungeonDAO) dao).createDungeon("Paris", "city", posXRandomized, posYRandomized, "idle");
-            dungeonTraitService.createDungeonTrait("Temperature", "Temperature of the dungeon", temp, dungeon.getId());
-            dungeonTraitService.createDungeonTrait("Wind", "Wind speed of the dungeon", wind, dungeon.getId());
-            dungeonTraitService.createDungeonTrait("Humidity", "Humidity of the dungeon", humidity, dungeon.getId());
-            dungeonTraitService.createDungeonTrait("Pressure", "Pressure of the dungeon", pressure, dungeon.getId());
-            dungeons.add(dungeon);
+            int randomeDungeons = (int) (Math.random() * 5 + 1);
+            for (int i = 0; i < randomeDungeons; i++){
+                float posXRandomized = posX + (float) (Math.random() * 0.025);
+                float posYRandomized = posY + (float) (Math.random() * 0.025);
+                Dungeon dungeon = ((DungeonDAO) dao).createDungeon(weatherService.getCity(posX, posY), "city", posXRandomized, posYRandomized, "idle");
+                dungeonTraitService.createDungeonTrait("Temperature", "Temperature of the dungeon", temp, dungeon);
+                dungeonTraitService.createDungeonTrait("Wind", "Wind speed of the dungeon", wind, dungeon);
+                dungeonTraitService.createDungeonTrait("Humidity", "Humidity of the dungeon", humidity, dungeon);
+                dungeonTraitService.createDungeonTrait("Pressure", "Pressure of the dungeon", pressure, dungeon);
+                dungeons.add(dungeon);
+            }
         }
         // Delete dungeons that are older than their time
         List<Dungeon> dungeonsToDelete = new ArrayList<>();
@@ -77,8 +80,15 @@ public class DungeonService extends GenericService<Dungeon> {
                 dungeonsToDelete.add(dungeon);
             }
         }
+        // Delete the DungeonTraits that are associated with the dungeons to be deleted
         for (Dungeon dungeon : dungeonsToDelete) {
-            dao.delete(dungeon);
+            List<DungeonTrait> dungeonTraits = dungeonTraitService.getDungeonTraitsByDungeonId(dungeon.getId());
+            for (DungeonTrait dungeonTrait : dungeonTraits) {
+                dungeonTraitService.delete(dungeonTrait);
+
+            dao.delete(dungeon);            }
+    }
+        for (Dungeon dungeon : dungeonsToDelete) {
             dungeons.remove(dungeon);
         }
         Gson gson = new Gson();

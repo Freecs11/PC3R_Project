@@ -9,10 +9,6 @@
         <filter-class>com.pc3r.vfarm.middleware.AuthFilter
         </filter-class>
     </filter>
-    <filter-mapping>
-        <filter-name>AuthFilter</filter-name>
-        <url-pattern>/api/*</url-pattern>
-    </filter-mapping>
     <filter>
         <filter-name>CorsFilter</filter-name>
         <filter-class>com.pc3r.vfarm.middleware.CorsFilter</filter-class>
@@ -20,6 +16,10 @@
     <filter-mapping>
         <filter-name>CorsFilter</filter-name>
         <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/api/*</url-pattern>
     </filter-mapping>
     <resource-ref>
         <res-ref-name>jdbc/db</res-ref-name>

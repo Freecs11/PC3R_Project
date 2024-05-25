@@ -13,16 +13,22 @@ public class CorsFilter implements Filter {
     private ServletContext context;
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException, IOException {
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-        response.addHeader("Access-Control-Allow-Origin", "http://localhost:5173");
-        response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-        response.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-        response.addHeader("Access-Control-Expose-Headers", "Location" );
-        response.addHeader("Access-Control-Allow-Credentials", "true");
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
 
+        // Set CORS headers
+        response.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, XSRF-Token");
+        response.setHeader("Access-Control-Expose-Headers", "Location");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
 
-        filterChain.doFilter(servletRequest, servletResponse);
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            response.setStatus(HttpServletResponse.SC_OK);
+        } else {
+            filterChain.doFilter(request, response);
+        }
     }
     @Override
     public void init(FilterConfig fConfig) {

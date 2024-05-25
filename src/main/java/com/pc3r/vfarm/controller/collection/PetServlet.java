@@ -19,7 +19,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@WebServlet(name = "petServlet", value = "/apii/v1/pet")
+@WebServlet(name = "petServlet", value = "/api/v1/pet")
 public class PetServlet extends HttpServlet {
     private static final PetService petService = new PetService();
 
@@ -71,6 +71,11 @@ public class PetServlet extends HttpServlet {
                     petJson.addProperty("id", pet.getId());
                     petJson.addProperty("name", pet.getName());
                     petJson.addProperty("type", pet.getType());
+                    petJson.addProperty("health", pet.getHealth());
+                    petJson.addProperty("price", pet.getPrice());
+                    petJson.addProperty("createdAt", pet.getCreatedAt().toString());
+                    petJson.addProperty("purchasedAt", pet.getPurchasedAt().toString());
+
                     response.getWriter().write(petJson.toString());
                 } else {
                     response.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -89,6 +94,11 @@ public class PetServlet extends HttpServlet {
                         petJson.addProperty("id", pet.getId());
                         petJson.addProperty("name", pet.getName());
                         petJson.addProperty("type", pet.getType());
+                        petJson.addProperty("health", pet.getHealth());
+                        petJson.addProperty("price", pet.getPrice());
+                        petJson.addProperty("createdAt", pet.getCreatedAt().toString());
+                        petJson.addProperty("purchasedAt", pet.getPurchasedAt().toString());
+
                         petsJson.add(petJson);
                     }
                     response.getWriter().write(petsJson.toString());
@@ -100,6 +110,7 @@ public class PetServlet extends HttpServlet {
             } else if (allPets != null) {
                 // Si le paramètre "all" est présent, récupérer tous les animaux
                 List<Pet> pets = petService.getAllPets();
+                pets = pets.stream().filter(pet -> pet.getOwner() == null).collect(Collectors.toList());
                 if (!pets.isEmpty()) {
                     JsonArray petsJson = new JsonArray();
                     for (Pet pet : pets) {
@@ -107,6 +118,11 @@ public class PetServlet extends HttpServlet {
                         petJson.addProperty("id", pet.getId());
                         petJson.addProperty("name", pet.getName());
                         petJson.addProperty("type", pet.getType());
+                        petJson.addProperty("health", pet.getHealth());
+                        petJson.addProperty("price", pet.getPrice());
+                        petJson.addProperty("createdAt", pet.getCreatedAt().toString());
+                        petJson.addProperty("purchasedAt", pet.getPurchasedAt().toString());
+
                         petsJson.add(petJson);
                     }
                     response.getWriter().write(petsJson.toString());

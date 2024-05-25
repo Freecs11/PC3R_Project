@@ -43,4 +43,29 @@ public class WeatherService {
         conn.disconnect();
         return List.of(temp, wind, humidity, pressure);
     }
+
+    public String getCity(float posX, float posY) throws IOException {
+        URL url = new URL(WEATHER_URL + "?key=" + API_KEY + "&q=" + posX + "," + posY);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
+        conn.setRequestProperty("Accept", "application/json");
+
+        if (conn.getResponseCode() != 200) {
+            throw new IOException("Failed : HTTP error code : " + conn.getResponseCode());
+        }
+
+        BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+
+        String output;
+        StringBuilder weatherData = new StringBuilder();
+        while ((output = br.readLine()) != null) {
+            weatherData.append(output);
+        }
+        output = weatherData.toString();
+        Gson gson = new Gson();
+        JsonObject jsonObject = gson.fromJson(output, JsonObject.class);
+        String city = jsonObject.get("location").getAsJsonObject().get("name").getAsString();
+        conn.disconnect();
+        return city;
+    }
 }
