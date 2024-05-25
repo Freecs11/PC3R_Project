@@ -50,6 +50,7 @@ public class MarketServlet extends HttpServlet {
                 return;
             }
 
+            // post
             if (buyerIdStr != null) {
                 Long buyerId = Long.parseLong(buyerIdStr);
                 User buyer = userDAO.findById(buyerId);
