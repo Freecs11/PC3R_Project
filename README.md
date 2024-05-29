@@ -35,7 +35,7 @@ Virtual Farm est un jeu en ligne où les joueurs peuvent générer et explorer d
 1. **Cloner le dépôt** :
     ```bash
     git clone https://github.com/Freecs11/PC3R_Project.git
-    cd virtual-farm
+    cd PC3R_Project
     ```
 
 2. **Configuration du backend** :
